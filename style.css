@@ -82,6 +82,7 @@ h4 {
   display: flex;
   flex-direction: column;
   cursor: pointer;
+  padding-right: 5px;
 }
 
 .bar {
@@ -232,6 +233,11 @@ h4 {
   100% {
     opacity: 0;
   }
+}
+
+.credit-photos {
+  font-size: 11px;
+  padding-left: 10px;
 }
 
 /* Synkronisera bildväxlingen */
