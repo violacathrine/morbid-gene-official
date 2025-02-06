@@ -1,1 +1,4 @@
 # js-project-business-site
+
+Free icons from: 
+<a href="https://www.flaticon.com/free-icons/instagram-logo" title="instagram logo icons">Instagram logo icons created by Freepik - Flaticon</a>
