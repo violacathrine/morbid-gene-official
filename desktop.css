@@ -1,5 +1,3 @@
-/* -----------------------------------------WIDESCREEN & DESKTOP ------------------------------------------------ */
-
 @media screen and (min-width: 768px) {
 
   html,
@@ -7,52 +5,53 @@
     height: 100%;
     display: flex;
     flex-direction: column;
-    padding-top: 10px;
     background: black;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
   }
 
-  .main-content {
-    flex-grow: 1;
-  }
-
-  h4 {
-    font-size: 19px;
-  }
-
-  header {
+  /*  HEADER – FIXAR PLACERINGEN */
+  .header {
     display: grid;
-    grid-template-columns: 1fr auto;
+    grid-template-columns: 1fr 1fr;
     align-items: center;
-    position: relative;
+    padding: 10px 20px;
+    position: fixed;
     width: 100%;
-    height: 100px;
-    top: 0;
-    left: 0;
     background: black;
     z-index: 1000;
+    top: 0;
+    height: 80px;
   }
 
-  .header-logo {
-    display: flex;
+  .header-container {
+    display: grid;
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
     align-items: center;
+    gap: 15px;
   }
 
   .header-logo img {
-    height: 500px;
-  }
-
-  /* Hamburger no-display */
-  .hamburger {
+    height: 60px;
     display: none;
+    margin-top: 10px;
+    margin-bottom: 10px;
   }
 
+  /*  NAVBAR – TVINGA TILL HÖGER */
   .navbar {
-    display: flex;
-    justify-content: flex-end;
+    display: grid;
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
     align-items: center;
     padding-top: 20px;
-    padding-left: -100px;
     background: black;
+    margin-left: auto;
+    width: 50%;
+    margin-left: -100px;
+    /* eller transform: translateX(-100px); */
   }
 
   .nav-links {
@@ -76,50 +75,77 @@
     white-space: nowrap;
   }
 
+  /*  DÖLJ HAMBURGERMENYN PÅ DESKTOP */
+  .hamburger {
+    display: none !important;
+  }
+
+  /*  MAIN CONTENT – STRÄCKER UT INNEHÅLLET */
   .main-content {
-    width: 100%;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-    text-align: center;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: auto 1fr 1fr 1fr 1fr 1fr auto;
+    flex-grow: 1;
+    width: 100%;
+    min-height: 150vh;
     overflow: hidden;
   }
 
+  /*  BANDINFO UNDER LOGGAN */
   .text-container {
-    width: 100%;
-    max-width: 90%;
-    margin: auto;
-    text-align: justify;
-    padding: 0px;
+    grid-column: 1 / 2;
+    grid-row: 2 / 4;
+    padding: 40px;
+    text-align: left;
   }
 
-  .text-container p {
-    width: 100%;
-    text-align: justify;
-    max-width: 90%;
-    margin: auto;
-    font-size: 18px;
-    line-height: 1.6;
-    font-weight: 400;
+  /*  LATEST NEWS UNDER BANDINFO */
+  .latest-news {
+    grid-column: 1 / 2;
+    grid-row: 4 / 6;
+    padding: 40px;
+    text-align: left;
   }
 
+  .upcoming-gigs {
+    grid-column: 1 / 2;
+    grid-row: 5 / 7;
+    padding: 40px;
+    text-align: left;
+  }
+
+  /*  SLIDESHOW – GÖR DEN STÖRRE */
   .slideshow-container {
-    max-width: 100%;
-    height: 1400px;
+    grid-column: 2 / 3;
+    grid-row: 2 / 7;
+    height: 140vh;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     overflow: hidden;
   }
 
-  .slideshow img {
+  .slideshow-container img {
     width: 100%;
-    height: 100%;
+    height: 120vh;
+    max-height: 120vh;
     object-fit: cover;
+    display: block;
   }
 
+  /*  PHOTOS-TEXT UNDER SLIDESHOW */
   .credit-photos {
+    grid-column: 1 / 2;
+    grid-row: 7 / 8;
     font-size: 14px;
     color: #aaaaaa;
+    text-align: left;
+    padding: 10px 20px;
+    align-self: end;
   }
 
+  /*  FOOTER */
   footer {
     width: 100%;
     background: #222;
@@ -127,12 +153,12 @@
     padding: 20px 0;
     font-size: 12px;
     margin-top: auto;
+    position: relative;
   }
 
   .footer-content {
-    font-size: 18px;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1fr 1fr 1fr;
     justify-items: center;
     align-items: center;
     max-width: 1200px;
@@ -152,12 +178,12 @@
 
   .social-icons img {
     width: 45px;
-    padding: 7px;
   }
 
   .design-by {
-    font-size: 14px;
     grid-column: 3;
     text-align: right;
+    font-size: 14px;
+    color: #aaa;
   }
 }

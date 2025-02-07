@@ -11,15 +11,18 @@
 
 <body>
 
-  <!-- HEADER/BURGERMENU -->
-  <header>
-    <div class="header-logo">
-      <img src="assets\morbid-logo.png" alt="header-logo">
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-container">
+      <!-- Logga -->
+      <div class="header-logo">
+        <img src="assets/morbid-logo.png" alt="Morbid Gene Logo">
+      </div>
     </div>
-    <nav class="navbar">
-      <div class="burger-logo"></div>
 
-      <!-- CHECKBOX TOGGLE MENU -->
+    <!-- Navigationsmeny -->
+    <nav class="navbar">
+      <!-- CHECKBOX TOGGLE MENU (Hamburgermenyn för mobil) -->
       <input type="checkbox" id="menu-toggle">
       <label for="menu-toggle" class="hamburger">
         <div class="bar"></div>
@@ -27,8 +30,8 @@
         <div class="bar"></div>
       </label>
       <ul class="nav-links">
-        <li><a href="#">News</a></li>
-        <li><a href="#">Upcoming gigs</a></li>
+        <li><a href="#latest-news">News</a></li>
+        <li><a href="#upcoming-gigs">Upcoming gigs</a></li>
         <li><a href="https://open.spotify.com/artist/5AfmmWHx8TRE8mMU2uqhQC?si=lQoSQ9wzRl-hVkXDxNiIBw">Music</a></li>
         <li><a href="https://morbid-gene.myspreadshop.se/">Merch</a></li>
         <li><a href="#contact">Contact</a></li>
@@ -41,6 +44,7 @@
     <section>
       <div class="main-content">
         <div class="text-container">
+          <h2>The Lovestory</h2>
           <p>
             Melodic death metal had a smoking-hot love affair with groove metal, and
             gave birth to a beautiful bastard known as Morbid Gene. This
@@ -48,6 +52,7 @@
             on stage and conjure tunes that will gladly stay on repeat until death.
           </p>
         </div>
+
         <div class="slideshow-container">
           <div class="slideshow">
             <img class="slide" src="assets/bild1.jpg" alt="Bild 1">
@@ -57,26 +62,34 @@
             <img class="slide" src="assets/bild5.jpg" alt="Bild 5">
           </div>
         </div>
-      </div>
-      <div class="credit-photos">
-        <p>Photos: &copy; Christoffer Wiklundh</p>
-      </div>
 
-      <div class="latest-news">
-        <h2>Latest news</h2>
-        <p>
-          06.02.25 - We recently had a gig at The Node in Stockholm, where we participated in the Emergenza Festival
-          music
-          competition. Thanks to our dedicated fans, friends, and family who voted for us, we came in first place and
-          are thrilled to continue being part of Emergenza's competition. Next up is the semi-final at Slakthuset in
-          Stockholm, and we hope everyone will come and support us then as well. We are so grateful for all the love and
-          support we have received so far, and we can't wait to see what the future holds for Morbid Gene.
-        </p>
+        <div class="credit-photos">
+          <p>Photos: &copy; Christoffer Wiklundh</p>
+        </div>
+
+        <div id="latest-news" class="latest-news">
+          <h2>Latest news</h2>
+          <p>
+            06.02.25 - We recently had a gig at The Node in Stockholm, where we participated in the Emergenza Festival
+            music competition. Thanks to our dedicated fans, friends, and family who voted for us, we came in first
+            place and are thrilled to continue being part of Emergenza's competition. Next up is the semi-final at
+            Slakthuset in Stockholm, and we hope everyone will come and support us then as well. We are so grateful
+            for all the love and support we have received so far, and we can't wait to see what the future holds for
+            Morbid Gene.
+          </p>
+        </div>
+        <div id="upcoming-gigs" class="upcoming-gigs">
+          <h2>Upcoming gigs</h2>
+          <p>
+            Slakthuset, Stockholm<br>
+            Date: More info coming
+          </p>
+        </div>
       </div>
     </section>
   </main>
 
-  <!-- FOOTER-->
+  <!-- FOOTER -->
   <footer>
     <div class="footer-content">
       <div id="contact" class="contact">
@@ -84,11 +97,12 @@
         <a href="mailto:morbidgenemusic@gmail.com">morbidgenemusic@gmail.com</a>
       </div>
 
-      <!-- SOCIAL ICONS-->
+      <!-- SOCIAL ICONS -->
       <div class="social-icons">
         <a href="https://www.instagram.com/morbidgenebandpage/">
           <img src="assets/instagram.png" alt="" width="28">
-        </a><a href="https://www.youtube.com/@morbidgeneofficial">
+        </a>
+        <a href="https://www.youtube.com/@morbidgeneofficial">
           <img src="assets/youtube.png" alt="" width="28">
         </a>
         <a href="https://www.facebook.com/morbidgene">
@@ -98,14 +112,11 @@
           <img src="assets/tiktok.png" alt="" width="28">
         </a>
         <a href="https://open.spotify.com/artist/5AfmmWHx8TRE8mMU2uqhQC?si=CrMqvoJ7Tkq5a6A_ExZCOw">
-          <img src="assets/spotify.png" alt="Beskrivning av bilden" width="28">
+          <img src="assets/spotify.png" alt="Spotify" width="28">
         </a>
-
-
-
       </div>
 
-      <!--  COPYRIGHT + DESIGN BY-->
+      <!-- COPYRIGHT + DESIGN BY -->
       <div class="copyright-design">
         <h4>&copy; 2025 Morbid Gene</h4>
         <p>All rights reserved.</p>
@@ -113,6 +124,7 @@
       <div class="design-by">Design by Cathrine Olsson</div>
     </div>
   </footer>
+
 </body>
 
 </html>

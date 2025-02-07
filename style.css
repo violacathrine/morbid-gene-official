@@ -152,7 +152,33 @@ h4 {
   font-weight: 400;
 }
 
+.latest-news {
+  width: 100%;
+  max-width: 90%;
+  margin: auto;
+  text-align: justify;
+  padding: 0px;
+}
+
 .latest-news p {
+  width: 100%;
+  text-align: justify;
+  max-width: 90%;
+  margin: auto;
+  font-size: 18px;
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+.upcoming-gigs {
+  width: 100%;
+  max-width: 90%;
+  margin: auto;
+  text-align: justify;
+  padding: 0px;
+}
+
+.upcoming-gigs p {
   width: 100%;
   text-align: justify;
   max-width: 90%;
