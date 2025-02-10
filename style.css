@@ -35,8 +35,6 @@
 
  .logo-terms {
    position: absolute;
-   top: 0;
-   left: 0;
    width: 100%;
    height: 100vh;
    /* Gör att bilden täcker hela skärmen */
@@ -44,11 +42,11 @@
    /* Lägg in rätt sökväg */
    background-size: contain;
    /* Anpassar bilden */
-   background-position: center;
+   background-position: top;
    background-repeat: no-repeat;
-   opacity: 0.2;
+   opacity: 0.9;
    /* Gör loggan transparent */
-   z-index: -1;
+   z-index: 1;
    /* Lägger den bakom allt annat */
  }
 
@@ -252,21 +250,47 @@
    margin-bottom: 10px;
  }
 
- .terms-of-use {
-   text-align: left;
+ .termsprivacy {
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+   align-items: center;
+   gap: 10px;
+   width: 100%;
    color: white;
-   font-size: 18px;
+   padding-top: 100px;
+   background: linear-gradient(to top, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 100%);
+ }
+
+ .terms-of-use {
+   display: flex;
+   /* Flexbox på boxarna */
+   flex-direction: column;
+   /* Staplar innehållet inuti varje box */
+   justify-content: center;
+   /* Centrerar innehållet vertikalt */
+   /* Halvtransparent bakgrund */
+   padding: 20px;
+   /* Så att de får plats bredvid varandra */
+   /* Justerar höjden */
  }
 
  .privacy-policy {
-   text-align: left;
-   color: white;
-   font-size: 18px;
+   display: flex;
+   /* Flexbox på boxarna */
+   flex-direction: column;
+   /* Staplar innehållet inuti varje box */
+   justify-content: center;
+   /* Centrerar innehållet vertikalt */
+   /* Halvtransparent bakgrund */
+   padding: 20px;
+   /* Så att de får plats bredvid varandra */
+   height: 100%;
  }
 
  /* ======== Footer ) ======== */
  .footer {
-   background: rgba(16, 16, 16, 0.571);
+   background: rgba(0, 0, 0, 0.6);
    color: white;
    display: flex;
    flex-direction: column;
@@ -350,8 +374,89 @@
      align-items: center;
      gap: 20px;
      width: 100%;
-     max-width: 90%;
      margin: auto;
+   }
+
+   .box-1 {
+     order: 1;
+   }
+
+   .box-3 {
+     order: 4;
+   }
+
+   .box-4 {
+     order: 3;
+   }
+
+   .box-5 {
+     order: 2;
+
+   }
+
+   .logo-terms {
+     position: absolute;
+     width: 100%;
+     height: 100vh;
+     /* Gör att bilden täcker hela skärmen */
+     background-image: url("assets/logo1.png");
+     /* Lägg in rätt sökväg */
+     background-size: contain;
+     /* Anpassar bilden */
+     background-position: top;
+     background-repeat: no-repeat;
+     opacity: 0.2;
+     /* Gör loggan transparent */
+     z-index: 1;
+     /* Lägger den bakom allt annat */
+   }
+
+   .termsprivacy {
+     display: flex;
+     justify-content: center;
+     gap: 20px;
+     /* Avstånd mellan boxarna */
+     width: 90%;
+     /* Anpassar bredden */
+     margin: auto;
+     margin-bottom: 15px;
+     /* Centrerar containern */
+   }
+
+   .terms-of-use {
+     display: flex;
+     /* Flexbox på boxarna */
+     flex-direction: column;
+     /* Staplar innehållet inuti varje box */
+     justify-content: center;
+     /* Centrerar innehållet vertikalt */
+     align-items: center;
+     /* Centrerar innehållet horisontellt */
+     /* Halvtransparent bakgrund */
+     padding: 20px;
+     width: 45%;
+     /* Så att de får plats bredvid varandra */
+     /* Justerar höjden */
+     background: linear-gradient(to top, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 100%);
+
+   }
+
+   .privacy-policy {
+     display: flex;
+     /* Flexbox på boxarna */
+     flex-direction: column;
+     /* Staplar innehållet inuti varje box */
+     justify-content: center;
+     /* Centrerar innehållet vertikalt */
+     align-items: center;
+     /* Centrerar innehållet horisontellt */
+     /* Halvtransparent bakgrund */
+     padding: 20px;
+     padding-bottom: 56px;
+     width: 45%;
+     /* Så att de får plats bredvid varandra */
+     /* Justerar höjden */
+     background: linear-gradient(to top, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 100%);
    }
 
    .footer {
@@ -362,6 +467,7 @@
      gap: 20px;
      text-align: center;
      width: 100%;
+     background: rgba(0, 0, 0, 0.6);
    }
 
    /* 📩 Email till vänster */
@@ -420,7 +526,7 @@
      text-align: center;
      /* Gör så att den tar hela skärmens bredd */
      /* Justera detta värde för att göra footern större eller mindre */
-     background: rgba(16, 16, 16, 0.208);
+     background: rgba(16, 16, 16, 0.498);
      /* Mörkare bakgrund */
    }
 
@@ -464,13 +570,13 @@
 
    .logo {
      position: absolute;
-     width: 300px;
-     height: 300px;
+     width: 500px;
+     height: 500px;
      background-image: url("assets/logo1.png");
      background-size: contain;
      background-position: left;
      background-repeat: no-repeat;
-     opacity: 0.5;
+     opacity: 0.9;
      z-index: -2;
    }
 
@@ -502,15 +608,26 @@
    .container {
      display: flex;
      justify-content: center;
-     flex-direction: row;
      flex-wrap: wrap;
+     width: 100%;
+   }
+
+   .box-1 {
+     width: 40%;
    }
 
    .box-3 img {
-     width: 600px;
+     width: 40%;
    }
 
    .box-4 {
+     width: 40%;
+     background: none;
+     width: 40%;
+   }
+
+   .box-5 {
+     width: 40%;
      background: none;
    }
 
@@ -524,10 +641,6 @@
      justify-items: center;
      gap: 10px;
      text-align: center;
-     /* Gör så att den tar hela skärmens bredd */
-     /* Justera detta värde för att göra footern större eller mindre */
-     background: rgba(16, 16, 16, 0.208);
-     /* Mörkare bakgrund */
    }
 
    /* 📩 Email i första kolumnen */
