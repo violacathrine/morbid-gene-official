@@ -5,9 +5,13 @@
    font-family: Arial, sans-serif;
    height: 100%;
    background-image: url("assets/forest_part2.png");
+   /* Standardbild för mobil */
+   background-size: cover;
+   /* Säkerställer att hela bilden syns */
    background-position: center;
    background-repeat: no-repeat;
-   background-attachment: fixed;
+   background-attachment: scroll;
+   /* Fixar problem med fixed på mobil */
    background-color: black;
  }
 
@@ -76,6 +80,103 @@
    gap: 10px;
    width: 100%;
    max-width: 100%;
+ }
+
+ /* Mobilanpassad slideshow-container
+ .slideshow-container {
+   grid-column: 1 / -1;
+   grid-row: 1 / 1;
+   width: 100%;
+   max-width: 480px;
+   height: auto;
+   background: #000000;
+   overflow: hidden;
+   position: relative;
+   margin: 0 auto;
+ }
+*/
+
+ /* Text på bilderna */
+ .slide-text {
+   position: absolute;
+   bottom: 5%;
+   left: 50%;
+   transform: translateX(-50%);
+   background: rgba(0, 0, 0, 0.7);
+   color: rgb(255, 255, 255);
+   padding: 5px 10px;
+   font-size: 14px;
+   border-radius: 5px;
+   text-align: center;
+   width: 90%;
+   white-space: normal;
+ }
+
+ /* Slideshow */
+ .slideshow {
+   position: relative;
+   width: 100%;
+   height: auto;
+ }
+
+ /* Bilderna i slidern */
+ .slide {
+   object-fit: cover;
+   position: absolute;
+   width: 100%;
+   height: 100%;
+   transition: opacity 1s ease-in-out;
+   animation: fade 25s infinite;
+ }
+
+ /* Fade-animation */
+ @keyframes fade {
+
+   0%,
+   16% {
+     opacity: 1;
+   }
+
+   20%,
+   100% {
+     opacity: 0;
+   }
+ }
+
+ /* Synkronisera bildväxlingen */
+ .slide:nth-child(1) {
+   animation-delay: 0s;
+ }
+
+ .slide:nth-child(2) {
+   animation-delay: 5s;
+ }
+
+ .slide:nth-child(3) {
+   animation-delay: 10s;
+ }
+
+ .slide:nth-child(4) {
+   animation-delay: 15s;
+ }
+
+ .slide:nth-child(5) {
+   animation-delay: 20s;
+ }
+
+ /* Anpassning för större skärmar */
+ @media (min-width: 768px) {
+   .slideshow-container {
+     max-width: 800px;
+     /* Större slideshow på tablets */
+   }
+ }
+
+ @media (min-width: 1080px) {
+   .slideshow-container {
+     max-width: 1080px;
+     /* Full storlek på stora skärmar */
+   }
  }
 
  /* ======== Boxar ======== */
@@ -193,18 +294,6 @@
 
  /* ======== Anpassning för iPads (768px - 1023px) ======== */
  @media (min-width: 1080px) {
-
-   body {
-     margin: 0;
-     padding: 0;
-     font-family: Arial, sans-serif;
-     height: 100%;
-     background-image: none;
-     background-position: center;
-     background-repeat: no-repeat;
-     background-attachment: fixed;
-     background-color: black;
-   }
 
    .grid-container {
      grid-template-columns: repeat(3, 1fr);
