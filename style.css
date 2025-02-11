@@ -259,32 +259,20 @@
    width: 100%;
    color: white;
    padding-top: 100px;
-   background: linear-gradient(to top, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 100%);
  }
 
  .terms-of-use {
    display: flex;
-   /* Flexbox på boxarna */
    flex-direction: column;
-   /* Staplar innehållet inuti varje box */
-   justify-content: center;
-   /* Centrerar innehållet vertikalt */
-   /* Halvtransparent bakgrund */
+   justify-content: flex-start;
    padding: 20px;
-   /* Så att de får plats bredvid varandra */
-   /* Justerar höjden */
  }
 
  .privacy-policy {
    display: flex;
-   /* Flexbox på boxarna */
    flex-direction: column;
-   /* Staplar innehållet inuti varje box */
-   justify-content: center;
-   /* Centrerar innehållet vertikalt */
-   /* Halvtransparent bakgrund */
+   justify-content: flex-start;
    padding: 20px;
-   /* Så att de får plats bredvid varandra */
    height: 100%;
  }
 
@@ -413,50 +401,25 @@
 
    .termsprivacy {
      display: flex;
-     justify-content: center;
+     justify-content: flex-start;
+     flex-direction: row;
+     align-items: stretch;
      gap: 20px;
-     /* Avstånd mellan boxarna */
      width: 90%;
-     /* Anpassar bredden */
      margin: auto;
      margin-bottom: 15px;
-     /* Centrerar containern */
    }
 
    .terms-of-use {
      display: flex;
-     /* Flexbox på boxarna */
      flex-direction: column;
-     /* Staplar innehållet inuti varje box */
-     justify-content: center;
-     /* Centrerar innehållet vertikalt */
-     align-items: center;
-     /* Centrerar innehållet horisontellt */
-     /* Halvtransparent bakgrund */
-     padding: 20px;
      width: 45%;
-     /* Så att de får plats bredvid varandra */
-     /* Justerar höjden */
-     background: linear-gradient(to top, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 100%);
-
    }
 
    .privacy-policy {
      display: flex;
-     /* Flexbox på boxarna */
      flex-direction: column;
-     /* Staplar innehållet inuti varje box */
-     justify-content: center;
-     /* Centrerar innehållet vertikalt */
-     align-items: center;
-     /* Centrerar innehållet horisontellt */
-     /* Halvtransparent bakgrund */
-     padding: 20px;
-     padding-bottom: 56px;
      width: 45%;
-     /* Så att de får plats bredvid varandra */
-     /* Justerar höjden */
-     background: linear-gradient(to top, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 100%);
    }
 
    .footer {
@@ -503,7 +466,7 @@
    }
  }
 
- /* För iPads & små laptops (mellan 768px och 1023px) */
+ /* -----------------------För iPads & små laptops (mellan 768px och 1023px)-------------------------- */
  @media (min-width: 768px) and (max-width: 1023px) {
    .container {
      display: grid;
@@ -512,6 +475,31 @@
      gap: 20px;
      max-width: 90%;
      margin: auto;
+   }
+
+   .termsprivacy {
+     display: flex;
+     justify-content: center;
+     flex-direction: row;
+     gap: 20px;
+     width: 90%;
+     margin: auto;
+     margin-bottom: 15px;
+   }
+
+   .terms-of-use {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     width: 30%;
+   }
+
+   .privacy-policy {
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+     width: 30%;
    }
 
    .footer {
