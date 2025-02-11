@@ -748,21 +748,21 @@
    }
 
    .box-1 {
-     width: 40%;
+     width: 100%;
    }
 
-   .box-3 img {
-     width: 40%;
+   .box-3 {
+     width: 50%;
    }
 
    .box-4 {
-     width: 40%;
+     width: 50%;
      background: none;
      width: 40%;
    }
 
    .box-5 {
-     width: 40%;
+     width: 100%;
      background: none;
    }
 
