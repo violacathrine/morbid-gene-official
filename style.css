@@ -4,13 +4,10 @@
    padding: 0;
    font-family: Arial, sans-serif;
    background-image: url(assets/background3.jpg);
-   /* Standardbild för mobil */
    background-size: cover;
-   /* Säkerställer att hela bilden syns */
    background-position: center;
    background-repeat: no-repeat;
    background-attachment: scroll;
-   /* Fixar problem med fixed på mobil */
    background-color: black;
    height: 100%;
  }
@@ -94,7 +91,7 @@
  }
 
  /* ======== Grid - Mobil först (1 kolumn) ======== */
- .container {
+ main {
    display: flex;
    flex-direction: column;
    flex-wrap: wrap;
@@ -107,99 +104,6 @@
    margin: auto;
  }
 
- /* Mobilanpassad slideshow-container
- .slideshow-container {
-   grid-column: 1 / -1;
-   grid-row: 1 / 1;
-   width: 100%;
-   max-width: 480px;
-   height: auto;
-   background: #000000;
-   overflow: hidden;
-   position: relative;
-   margin: 0 auto;
- }
-
-
- .slide-text {
-   position: absolute;
-   bottom: 5%;
-   left: 50%;
-   transform: translateX(-50%);
-   background: rgba(0, 0, 0, 0.7);
-   color: rgb(255, 255, 255);
-   padding: 5px 10px;
-   font-size: 14px;
-   border-radius: 5px;
-   text-align: center;
-   width: 90%;
-   white-space: normal;
- }
-
-
- .slideshow {
-   position: relative;
-   width: 100%;
-   height: auto;
- }
-
-
- .slide {
-   object-fit: cover;
-   position: absolute;
-   width: 100%;
-   height: 100%;
-   transition: opacity 1s ease-in-out;
-   animation: fade 25s infinite;
- }
-
-
- @keyframes fade {
-
-   0%,
-   16% {
-     opacity: 1;
-   }
-
-   20%,
-   100% {
-     opacity: 0;
-   }
- }
-
-
- .slide:nth-child(1) {
-   animation-delay: 0s;
- }
-
- .slide:nth-child(2) {
-   animation-delay: 5s;
- }
-
- .slide:nth-child(3) {
-   animation-delay: 10s;
- }
-
- .slide:nth-child(4) {
-   animation-delay: 15s;
- }
-
- .slide:nth-child(5) {
-   animation-delay: 20s;
- }
-
- @media (min-width: 768px) {
-   .slideshow-container {
-     max-width: 800px;
-   }
- }
-
- @media (min-width: 1080px) {
-   .slideshow-container {
-     max-width: 1080px;
-   }
- }
-*/
 
  /* ======== Boxar ======== */
  .box-1,
@@ -276,7 +180,122 @@
    height: 100%;
  }
 
- /* ======== Footer ) ======== */
+ /* ------------------------------------------- Formulär ------------------------------------------------ */
+ /* Formulär container */
+ .form-container {
+   flex: 1;
+   width: 90%;
+   max-width: 250px;
+   margin: 20px auto;
+   padding: 20px;
+   background: rgba(0, 0, 0, 0.607);
+   color: white;
+   border-radius: 10px;
+   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+ }
+
+ /* Formulär layout */
+ form {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+ }
+
+ /* Labels (för textfält och textarea) */
+ label {
+   margin-top: 10px;
+   cursor: pointer;
+   font-weight: bold;
+ }
+
+ /* Stil för textfält och textarea */
+ input[type="text"],
+ input[type="email"],
+ textarea {
+   width: 90%;
+   padding: 10px;
+   margin-top: 5px;
+   border-radius: 5px;
+   border: 1px solid #ccc;
+ }
+
+ /* Additional Info sektionen */
+ .additional-info {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+ }
+
+ /* Fokus-effekt på inputs */
+ input:focus,
+ textarea:focus {
+   outline: none;
+   border-color: crimson;
+   box-shadow: 0 0 5px crimson;
+ }
+
+ /* 📌 Fixad styling för radioknappar */
+ fieldset {
+   display: grid;
+   grid-template-columns: repeat(2, 1fr);
+   /* Två kolumner */
+   gap: 10px;
+   /* Jämnt mellanrum mellan alternativen */
+   border: none;
+   margin-top: 20px;
+   padding: 10px;
+   text-align: left;
+ }
+
+ /* Legenden centreras men hålls inom fieldset */
+ legend {
+   text-align: center;
+   font-weight: bold;
+   margin-bottom: 10px;
+ }
+
+ /* Stil för radio-knappar och deras labels */
+ fieldset label {
+   display: flex;
+   align-items: center;
+   gap: 8px;
+   /* Skapar mellanrum mellan knapp och text */
+   cursor: pointer;
+ }
+
+ /* Stil för själva radio-knappen */
+ fieldset input[type="radio"] {
+   margin: 0;
+   width: 16px;
+   height: 16px;
+   accent-color: crimson;
+   /* Ändrar färg på valda radioknappar */
+ }
+
+ /* Fix: Se till att bara radioknappar får anpassad stil */
+ label input[type="radio"] {
+   display: inline-block;
+   /* Behåll standard blockformat */
+ }
+
+ /* Knapp */
+ button {
+   margin-top: 20px;
+   padding: 12px;
+   background: rgb(58, 3, 14);
+   color: white;
+   border: none;
+   cursor: pointer;
+   font-size: 18px;
+   border-radius: 5px;
+   transition: 0.3s ease;
+ }
+
+ button:hover {
+   background: rgb(41, 4, 4);
+ }
+
+ /* ------------------------------------------------- Footer --------------------------------------------------- */
  .footer {
    background: rgba(0, 0, 0, 0.6);
    color: white;
@@ -289,7 +308,7 @@
    gap: 10px;
  }
 
- /* ======== Email & Copyright ======== */
+ /* Email & Copyright */
  .footer-email {
    order: 1;
    font-weight: bold;
@@ -354,7 +373,7 @@
      /* Mörk bakgrundsfärg */
    }
 
-   .container {
+   main {
      display: flex;
      flex-direction: row;
      flex-wrap: wrap;
@@ -395,7 +414,7 @@
      background-repeat: no-repeat;
      opacity: 0.2;
      /* Gör loggan transparent */
-     z-index: 1;
+     z-index: -1;
      /* Lägger den bakom allt annat */
    }
 
@@ -468,7 +487,7 @@
 
  /* -----------------------För iPads & små laptops (mellan 768px och 1023px)-------------------------- */
  @media (min-width: 768px) and (max-width: 1023px) {
-   .container {
+   .main {
      display: grid;
      grid-template-columns: repeat(2, 1fr);
      /* Två kolumner */
@@ -554,9 +573,12 @@
    body {
      background-image: url(assets/background3.jpg);
      background-color: #000000;
+     height: 100%;
+     margin: 0;
+     padding: 0;
    }
 
-   .logo {
+   .logo-bookings {
      position: absolute;
      width: 500px;
      height: 500px;
@@ -566,6 +588,15 @@
      background-repeat: no-repeat;
      opacity: 0.9;
      z-index: -2;
+   }
+
+
+   .main {
+     flex: 1;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     justify-content: center;
    }
 
    /* 📌 Navbar - Justera placering */
@@ -592,6 +623,122 @@
      font-size: 16px;
      color: white;
    }
+
+   /* ------------------------------------------- Formulär ------------------------------------------------ */
+   /* Formulär container */
+   .form-container {
+     flex: 1;
+     width: 100%;
+     max-width: 600px;
+     margin: 90px auto;
+     padding: 20px;
+     background: rgba(0, 0, 0, 0.607);
+     color: white;
+     border-radius: 10px;
+     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+   }
+
+   /* Formulär layout */
+   form {
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+   }
+
+   /* Labels (för textfält och textarea) */
+   label {
+     margin-top: 10px;
+     cursor: pointer;
+     font-weight: bold;
+   }
+
+   /* Stil för textfält och textarea */
+   input[type="text"],
+   input[type="email"],
+   textarea {
+     width: 90%;
+     padding: 10px;
+     margin-top: 5px;
+     border-radius: 5px;
+     border: 1px solid #ccc;
+   }
+
+   /* Additional Info sektionen */
+   .additional-info {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+   }
+
+   /* Fokus-effekt på inputs */
+   input:focus,
+   textarea:focus {
+     outline: none;
+     border-color: crimson;
+     box-shadow: 0 0 5px crimson;
+   }
+
+   /* 📌 Fixad styling för radioknappar */
+   fieldset {
+     display: grid;
+     grid-template-columns: repeat(2, 1fr);
+     /* Två kolumner */
+     gap: 10px;
+     /* Jämnt mellanrum mellan alternativen */
+     border: none;
+     margin-top: 20px;
+     padding: 10px;
+     text-align: left;
+   }
+
+   /* Legenden centreras men hålls inom fieldset */
+   legend {
+     text-align: center;
+     font-weight: bold;
+     margin-bottom: 10px;
+   }
+
+   /* Stil för radio-knappar och deras labels */
+   fieldset label {
+     display: flex;
+     align-items: center;
+     gap: 8px;
+     /* Skapar mellanrum mellan knapp och text */
+     cursor: pointer;
+   }
+
+   /* Stil för själva radio-knappen */
+   fieldset input[type="radio"] {
+     margin: 0;
+     width: 16px;
+     height: 16px;
+     accent-color: crimson;
+     /* Ändrar färg på valda radioknappar */
+   }
+
+   /* Fix: Se till att bara radioknappar får anpassad stil */
+   label input[type="radio"] {
+     display: inline-block;
+     /* Behåll standard blockformat */
+   }
+
+   /* Knapp */
+   button {
+     margin-top: 20px;
+     padding: 12px;
+     background: rgb(58, 3, 14);
+     color: white;
+     border: none;
+     cursor: pointer;
+     font-size: 18px;
+     border-radius: 5px;
+     transition: 0.3s ease;
+   }
+
+   button:hover {
+     background: rgb(41, 4, 4);
+   }
+
 
    .container {
      display: flex;
@@ -660,5 +807,4 @@
      grid-row: 3 / 4;
      text-align: center;
    }
-
  }

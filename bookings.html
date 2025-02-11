@@ -9,109 +9,62 @@
 </head>
 
 <body>
-
-  <div class="logo-terms"></div>
-
+  <div class="logo-bookings"></div>
   <header>
     <!-- Navigationsmeny -->
     <nav class="navbar">
       <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="contact">Contact</a></li>
+        <li><a href="News">News</a></li>
+        <li><a href="upcoming-gigs">Upcoming gigs</a></li>
+        <li><a href="https://open.spotify.com/artist/5AfmmWHx8TRE8mMU2uqhQC?si=lQoSQ9wzRl-hVkXDxNiIBw">Music</a></li>
+        <li><a href="Photos">Photos</a></li>
+        <li><a href="https://morbid-gene.myspreadshop.se/">Merch</a></li>
+        <li><a href="index.html">Back home</a></li>
       </ul>
     </nav>
-
   </header>
 
-  <div class="termsprivacy">
+  <!-- Bokningsformulär -->
+  <section class="form-container">
+    <form action="https://httpbin.org/anything" method="post">
 
-    <div class="terms-of-use">
-      <h1>Terms of use</h1>
-      <p><b>Last updated: 10.02.25</b><br><br>
+      <!-- Namn -->
+      <label for="name">Full Name:</label>
+      <input type="text" id="name" name="name" placeholder="Enter your full name" required>
 
-        Welcome to morbidgeneofficial. By accessing and using this website, you agree to the following terms and
-        conditions. If you do not accept these terms, please refrain from using the site.<br><br>
+      <!-- E-post -->
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" placeholder="Enter your email" required>
 
-        <b>1. Intellectual Property</b><br>
-        All content on this website, including but not limited to text, graphics, logos, audio, and videos, is protected
-        by copyright and belongs to Morbid Gene, unless otherwise stated. It is prohibited to copy,
-        distribute, modify, or use any material from this website without written permission.<br><br>
 
-        <b>Background Image:</b><br>
-        The background image on this website is not created by us. It belongs to <a
-          href="https://unsplash.com/@brandaohh" target="_blank" rel="noopener noreferrer">Branimir Balogović</a> and is
-        used with
-        permission/under a license from <a href="http://unsplash.com">Unsplash</a> All rights belong to the
-        original creator.<br><br>
+      <!-- Spelningens typ -->
+      <fieldset class="radio-group">
+        <legend>What type of event are you booking for?</legend>
 
-        <b>2.Website Usage</b><br>
-        You may not use this website for illegal purposes or activities that may harm the website or its users.
-        You may not attempt to hack, modify, or interfere with the functionality of this website.
-        The website does not guarantee that its content is error-free or always up to date.<br><br>
+        <label><input type="radio" name="event_type" value="festival" required> Festival</label>
+        <label><input type="radio" name="event_type" value="club"> Club Gig</label>
+        <label><input type="radio" name="event_type" value="private"> Private Event</label>
+        <label><input type="radio" name="event_type" value="other"> Other</label>
+      </fieldset>
 
-        <b>3. Limitation of Liability</b><br>
-        The website is provided "as is" without any warranties. We are not responsible for any damages or losses
-        resulting from the use of the website.
-        We reserve the right to modify or remove content without notice.<br><br>
+      <!-- Meddelande -->
+      <div class="additional-info">
+        <label for="message">Additional Information:</label>
+        <textarea id="message" name="message" rows="4" placeholder="Write any special requests..."></textarea>
+      </div>
 
-        <b> 4. Third-Party Links</b><br>
-        This website may contain links to external websites. We have no control over the content of these websites and
-        accept no responsibility for their accuracy or security.<br><br>
+      <!-- Skicka-knapp -->
+      <button type="submit">Submit Booking Request</button>
 
-        <b>5. Changes to Terms of Use</b><br>
-        We reserve the right to update these terms at any time. Changes take effect upon publication on this page.
-      </p>
+    </form>
+  </section>
 
-    </div>
 
-    <div class="privacy-policy">
-      <h1>Privacy policy</h1>
-      <p>
-        At morbidgeneofficial.com, we respect your privacy and want you to feel secure when visiting our website. This
-        policy explains how we collect, use, and protect your information.<br><br>
-
-        <b>1. Information We Collect</b><br>
-        We do not actively collect personal data from visitors. However, certain data may be collected automatically
-        through cookies or third-party services.
-
-        Information that may be collected includes:
-
-        IP address and browser type
-        Time and date of visit
-        Pages visited
-        Referring website (if you arrived via a link)<br><br>
-
-        <b>2. How We Use Information</b><br>
-        The information collected is only used to:<br><br>
-
-        Improve website functionality and performance
-        Analyze traffic and visitor behavior
-        Detect and prevent security threats
-        <br><br>
-        <b>3. Cookies and Third-Party Services</b><br>
-        Our website may use cookies and third-party services such as:<br><br>
-
-        Google Analytics for traffic statistics
-        Embedded services from social media (e.g., YouTube, Instagram)
-        You can block or delete cookies at any time through your browser settings.<br><br>
-
-        <b>4. Information Sharing</b><br>
-        We do not sell or share your information with third parties, except when required by law.
-
-        <b>5. Data Security</b></br><br>
-        We take reasonable measures to protect any information collected. However, we cannot guarantee complete
-        security,
-        as the internet is never entirely risk-free.<br><br>
-
-        <b>6. Changes to This Policy</b><br>
-        We may update this policy as needed. Any changes will be published on this page.
-      </p>
-    </div>
-  </div>
   <div class="footer">
     <div class="contact">
       <h4><a href="mailto:morbidgenemusic@gmail.com">morbidgenemusic@gmail.com</a></h4>
     </div>
+
     <div class="section-2">
       <!-- Social Media Icons by NiftyButtons https://niftybuttons.com -->
       <div style="display: flex; flex-wrap:wrap; align-items: center; justify-content: center;"><a
@@ -171,10 +124,12 @@
       <h4>Copyright &copy; Morbid Gene</h4>
       <p>All rights reserved.</p>
     </div>
+
     <div class="policy">
       <a href="policy.html">Terms of Use</a> |
       <a href="policy.html">Privacy Policy</a>
     </div>
+
     <div class="design-by">
       <a href="https://github.com/violacathrine">Webdesign by Cathrine Olsson</a>
     </div>
