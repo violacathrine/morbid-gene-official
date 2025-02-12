@@ -30,40 +30,41 @@
     </nav>
   </header>
 
-
-  <section class="form-container">
-    <form action="https://httpbin.org/anything" method="POST">
-
-
-      <label="name">Full Name:</label>
-        <input="text" id="name" name="name" placeholder="Enter your full name" required>
+  <main>
+    <section class="form-container">
+      <form action="https://httpbin.org/anything" method="POST">
 
 
-          <label="email">Email:</label>
-            <input="email" id="email" name="email" placeholder="Enter your email" required>
+        <label="name">Full Name:</label>
+          <input="text" id="name" name="name" placeholder="Enter your full name" required>
 
 
-              <fieldset class="radio-group">
-                <legend>What type of event are you booking for?</legend>
-
-                <label><input type="radio" name="event_type" value="festival" required> Festival</label>
-                <label><input type="radio" name="event_type" value="club"> Club Gig</label>
-                <label><input type="radio" name="event_type" value="private"> Private Event</label>
-                <label><input type="radio" name="event_type" value="other"> Other</label>
-              </fieldset>
+            <label="email">Email:</label>
+              <input="email" id="email" name="email" placeholder="Enter your email" required>
 
 
-              <div class="additional-info">
-                <label for="message">Additional Information:</label>
-                <textarea id="message" name="message" rows="4" placeholder="Write any special requests..."></textarea>
-              </div>
+                <fieldset class="radio-group">
+                  <legend>What type of event are you booking for?</legend>
+
+                  <label><input type="radio" name="event_type" value="festival" required> Festival</label>
+                  <label><input type="radio" name="event_type" value="club"> Club Gig</label>
+                  <label><input type="radio" name="event_type" value="private"> Private Event</label>
+                  <label><input type="radio" name="event_type" value="other"> Other</label>
+                </fieldset>
 
 
-              <button type="submit">Submit Booking Request</button>
+                <div class="additional-info">
+                  <label for="message">Additional Information:</label>
+                  <textarea id="message" name="message" rows="4" placeholder="Write any special requests..."></textarea>
+                </div>
 
-    </form>
-  </section>
 
+                <button type="submit">Submit Booking Request</button>
+
+      </form>
+    </section>
+
+  </main>
 
   <footer>
     <div class="contact">

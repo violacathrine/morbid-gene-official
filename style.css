@@ -39,7 +39,7 @@ body {
   background-position: top;
   background-repeat: no-repeat;
   opacity: 0.9;
-  z-index: 1;
+  z-index: -1;
 }
 
 /* Header & Navigationsmenu */
@@ -101,9 +101,9 @@ main {
 
 
 /*  Boxes */
-.box-1,
-.box-3,
-.box-4 {
+.band-text,
+.band-photo,
+.latest-news {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -112,21 +112,21 @@ main {
   margin: 10px;
 }
 
-.box-1 {
+.band-text {
   color: white;
   font-size: 18px;
   text-align: justify;
   margin-top: 80px;
 }
 
-.box-3 img {
+.band-photo img {
   width: 100%;
   height: auto;
   object-fit: cover;
 
 }
 
-.box-4 {
+.latest-news {
   background: rgba(0, 0, 0, 0.164);
   color: white;
   flex-wrap: wrap;
@@ -134,12 +134,12 @@ main {
   line-height: 1.6;
 }
 
-.box-4 p {
+.latest-news p {
   font-size: 16px;
   max-width: 90%;
 }
 
-.box-5 {
+.upcoming-gigs {
   background: rgba(0, 0, 0, 0.164);
   color: white;
   flex-wrap: wrap;
@@ -150,7 +150,7 @@ main {
   font-weight: bold;
 }
 
-.termsprivacy {
+.policy-html {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -305,13 +305,14 @@ footer {
 }
 
 /* Email & Copyright */
-.footer-email {
+.contact {
   order: 1;
   font-weight: bold;
   font-size: 16px;
 }
 
-footer .section-2 {
+.icons {
+  order: 2;
   display: flex;
   flex-wrap: wrap;
   width: 250px;
@@ -319,15 +320,8 @@ footer .section-2 {
   justify-content: center;
 }
 
-.footer-copyright {
-  font-size: 14px;
-}
-
-.footer-links {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  font-size: 14px;
+.copyrights {
+  order: 3;
 }
 
 /* DESIGN BY */
@@ -341,6 +335,7 @@ footer .section-2 {
 
 /* POLICY */
 .policy {
+  order: 4;
   font-size: 13px;
   font-size: 12px;
   margin-top: 10px;
@@ -381,21 +376,20 @@ a:hover {
     margin: auto;
   }
 
-  .box-1 {
+  .band-text {
     order: 1;
   }
 
-  .box-3 {
+  .band-photo {
     order: 4;
   }
 
-  .box-4 {
+  .latest-news {
     order: 3;
   }
 
-  .box-5 {
+  .upcoming-gigs {
     order: 2;
-
   }
 
   .logo-policy {
@@ -410,7 +404,7 @@ a:hover {
     z-index: -1;
   }
 
-  .termsprivacy {
+  .policy-html {
     display: flex;
     justify-content: flex-start;
     flex-direction: row;
@@ -446,7 +440,7 @@ a:hover {
 
   /*  Email till vänster */
   .contact {
-    grid-column: 1 / 4;
+    grid-column: 1 / 2;
     grid-row: 4 / 4;
     font-size: 16px;
     font-weight: bold;
@@ -454,7 +448,7 @@ a:hover {
 
   /*  Sociala medier i mitten */
   .icons {
-    grid-column: 2 / 4;
+    grid-column: 2 / 3;
     grid-row: 2 / 4;
     display: flex;
     justify-content: center;
@@ -471,7 +465,7 @@ a:hover {
   /*  Webdesign längst ner */
   .design-by {
     grid-column: 1 / 4;
-    grid-row: 2;
+    grid-row: 3 / 4;
     font-size: 12px;
     opacity: 0.8;
   }
@@ -488,7 +482,7 @@ a:hover {
     margin: auto;
   }
 
-  .termsprivacy {
+  .policy-html {
     display: flex;
     justify-content: center;
     flex-direction: row;
@@ -532,7 +526,7 @@ a:hover {
 
   /*  Sociala medier i mitten */
   .icons {
-    grid-column: 2 / 4;
+    grid-column: 2 / 3;
     grid-row: 1 / 4;
   }
 
@@ -549,7 +543,7 @@ a:hover {
 
   /*  Webdesign längst ner ensam */
   .design-by {
-    grid-column: 1 / 4;
+    grid-column: 1 / 2;
     grid-row: 3 / 4;
     text-align: center;
   }
@@ -577,7 +571,6 @@ a:hover {
     opacity: 0.9;
     z-index: -2;
   }
-
 
   .main {
     flex: 1;
@@ -735,25 +728,25 @@ a:hover {
   }
 
   /* Boxes*/
-  .box-1 {
+  .band-text {
     width: 30%;
   }
 
-  .box-3 {
+  .band-photo {
     width: 40%;
   }
 
-  .box-3 img {
+  .band-photo img {
     width: 100%;
   }
 
-  .box-4 {
+  .latest-news {
     width: 40%;
     background: none;
     width: 40%;
   }
 
-  .box-5 {
+  .upcoming-gigs {
     width: 40%;
     background: none;
   }
@@ -777,7 +770,8 @@ a:hover {
 
   /* Sociala medier i mitten */
   .icons {
-    grid-column: 2 / 4;
+    width: 400px;
+    grid-column: 2 / 3;
     grid-row: 1 / 4;
   }
 
@@ -789,13 +783,13 @@ a:hover {
 
   .policy {
     grid-column: 3 / 4;
-    grid-row: 3 / 4;
+    grid-row: 4 / 4;
   }
 
   /* Webdesign längst ner ensam */
   .design-by {
-    grid-column: 1 / 4;
-    grid-row: 3 / 4;
+    grid-column: 1 / 2;
+    grid-row: 4 / 4;
     text-align: center;
   }
 }
