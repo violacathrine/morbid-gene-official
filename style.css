@@ -1,810 +1,801 @@
- /* ======== Grundinställningar ======== */
- body {
-   margin: 0;
-   padding: 0;
-   font-family: Arial, sans-serif;
-   background-image: url(assets/background3.jpg);
-   background-size: cover;
-   background-position: center;
-   background-repeat: no-repeat;
-   background-attachment: scroll;
-   background-color: black;
-   height: 100%;
- }
-
- /* ======== Logo ======== */
- .logo {
-   position: absolute;
-   width: 300px;
-   height: 300px;
-   background-image: url("assets/logo1.png");
-   background-size: contain;
-   background-position: left;
-   background-repeat: no-repeat;
-   opacity: 1;
-   z-index: -2;
- }
-
- .logo img {
-   width: 100%;
-   height: auto;
- }
-
- .logo-terms {
-   position: absolute;
-   width: 100%;
-   height: 100vh;
-   /* Gör att bilden täcker hela skärmen */
-   background-image: url("assets/logo1.png");
-   /* Lägg in rätt sökväg */
-   background-size: contain;
-   /* Anpassar bilden */
-   background-position: top;
-   background-repeat: no-repeat;
-   opacity: 0.9;
-   /* Gör loggan transparent */
-   z-index: 1;
-   /* Lägger den bakom allt annat */
- }
-
- /* ======== Header & Navigationsmenu ======== */
- header {
-   display: flex;
-   justify-content: flex-end;
-   padding: 10px;
- }
-
- h3 {
-   font-size: 20px;
-   margin: 0;
-   padding: 5px 0;
-   position: relative;
-   top: -5px;
- }
-
- .navbar {
-   display: flex;
-   justify-content: flex-end;
-   padding: 10px;
- }
-
- .navbar ul {
-   display: flex;
-   flex-direction: column;
-   align-items: flex-end;
-   list-style: none;
-   padding: 0;
-   gap: 10px;
- }
-
- .navbar a {
-   text-decoration: none;
-   text-transform: uppercase;
-   font-weight: bold;
-   padding: 10px;
-   font-size: 16px;
-   color: white;
- }
-
- .navbar a:hover {
-   text-decoration: underline !important;
- }
-
- /* ======== Grid - Mobil först (1 kolumn) ======== */
- main {
-   display: flex;
-   flex-direction: column;
-   flex-wrap: wrap;
-   flex: 1;
-   justify-content: center;
-   align-items: center;
-   gap: 20px;
-   width: 100%;
-   max-width: 90%;
-   margin: auto;
- }
-
-
- /* ======== Boxar ======== */
- .box-1,
- .box-3,
- .box-4 {
-   display: flex;
-   flex-direction: column;
-   justify-content: center;
-   align-items: center;
-   text-align: center;
-   margin: 10px;
- }
-
- .box-1 {
-   color: white;
-   font-size: 18px;
-   text-align: justify;
-   margin-top: 80px;
- }
-
- .box-3 img {
-   width: 100%;
-   height: auto;
-   object-fit: cover;
-
- }
-
- .box-4 {
-   background: rgba(0, 0, 0, 0.164);
-   color: white;
-   flex-wrap: wrap;
-   text-align: center;
-   line-height: 1.6;
- }
-
- .box-4 p {
-   font-size: 16px;
-   max-width: 90%;
- }
-
- .box-5 {
-   background: rgba(0, 0, 0, 0.164);
-   color: white;
-   flex-wrap: wrap;
-   text-align: center;
-   line-height: 1.6;
-   width: 100%;
-   margin-bottom: 10px;
- }
-
- .termsprivacy {
-   display: flex;
-   flex-wrap: wrap;
-   justify-content: center;
-   align-items: center;
-   gap: 10px;
-   width: 100%;
-   color: white;
-   padding-top: 100px;
- }
-
- .terms-of-use {
-   display: flex;
-   flex-direction: column;
-   justify-content: flex-start;
-   padding: 20px;
- }
-
- .privacy-policy {
-   display: flex;
-   flex-direction: column;
-   justify-content: flex-start;
-   padding: 20px;
-   height: 100%;
- }
-
- /* ------------------------------------------- Formulär ------------------------------------------------ */
- /* Formulär container */
- .form-container {
-   flex: 1;
-   width: 90%;
-   max-width: 250px;
-   margin: 20px auto;
-   padding: 20px;
-   background: rgba(0, 0, 0, 0.607);
-   color: white;
-   border-radius: 10px;
-   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
- }
-
- /* Formulär layout */
- form {
-   display: flex;
-   flex-direction: column;
-   justify-content: center;
- }
-
- /* Labels (för textfält och textarea) */
- label {
-   margin-top: 10px;
-   cursor: pointer;
-   font-weight: bold;
- }
-
- /* Stil för textfält och textarea */
- input[type="text"],
- input[type="email"],
- textarea {
-   width: 90%;
-   padding: 10px;
-   margin-top: 5px;
-   border-radius: 5px;
-   border: 1px solid #ccc;
- }
-
- /* Additional Info sektionen */
- .additional-info {
-   display: flex;
-   flex-direction: column;
-   align-items: center;
- }
-
- /* Fokus-effekt på inputs */
- input:focus,
- textarea:focus {
-   outline: none;
-   border-color: crimson;
-   box-shadow: 0 0 5px crimson;
- }
-
- /* 📌 Fixad styling för radioknappar */
- fieldset {
-   display: grid;
-   grid-template-columns: repeat(2, 1fr);
-   /* Två kolumner */
-   gap: 10px;
-   /* Jämnt mellanrum mellan alternativen */
-   border: none;
-   margin-top: 20px;
-   padding: 10px;
-   text-align: left;
- }
-
- /* Legenden centreras men hålls inom fieldset */
- legend {
-   text-align: center;
-   font-weight: bold;
-   margin-bottom: 10px;
- }
-
- /* Stil för radio-knappar och deras labels */
- fieldset label {
-   display: flex;
-   align-items: center;
-   gap: 8px;
-   /* Skapar mellanrum mellan knapp och text */
-   cursor: pointer;
- }
-
- /* Stil för själva radio-knappen */
- fieldset input[type="radio"] {
-   margin: 0;
-   width: 16px;
-   height: 16px;
-   accent-color: crimson;
-   /* Ändrar färg på valda radioknappar */
- }
-
- /* Fix: Se till att bara radioknappar får anpassad stil */
- label input[type="radio"] {
-   display: inline-block;
-   /* Behåll standard blockformat */
- }
-
- /* Knapp */
- button {
-   margin-top: 20px;
-   padding: 12px;
-   background: rgb(58, 3, 14);
-   color: white;
-   border: none;
-   cursor: pointer;
-   font-size: 18px;
-   border-radius: 5px;
-   transition: 0.3s ease;
- }
-
- button:hover {
-   background: rgb(41, 4, 4);
- }
-
- /* ------------------------------------------------- Footer --------------------------------------------------- */
- .footer {
-   background: rgba(0, 0, 0, 0.6);
-   color: white;
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-   text-align: center;
-   padding: 20px 0;
-   width: 100%;
-   gap: 10px;
- }
-
- /* Email & Copyright */
- .footer-email {
-   order: 1;
-   font-weight: bold;
-   font-size: 16px;
- }
-
- .footer .section-2 {
-   display: flex;
-   flex-wrap: wrap;
-   gap: 10px;
-   justify-content: center;
- }
-
- .footer-copyright {
-   font-size: 14px;
- }
-
- .footer-links {
-   display: flex;
-   justify-content: center;
-   gap: 15px;
-   font-size: 14px;
- }
-
- /* DESIGN BY */
- .design-by {
-   order: 5;
-   font-size: 13px;
-   font-size: 12px;
-   margin-top: 10px;
-   opacity: 0.8;
- }
-
- /* POLICY */
- .policy {
-   font-size: 13px;
-   font-size: 12px;
-   margin-top: 10px;
-   opacity: 0.8;
- }
-
- /* LINK STYLING */
- a {
-   color: #ffffff;
-   text-decoration: none;
- }
-
- a:visited {
-   color: white;
- }
-
- a:hover {
-   text-decoration: none;
-   color: #ffffff;
- }
-
- /* ======== Anpassning för iPads (768px - 1023px) ======== */
- @media (min-width: 768px) {
-   body {
-     background-image: url(assets/background3.jpg);
-     background-color: #000000;
-     /* Mörk bakgrundsfärg */
-   }
-
-   main {
-     display: flex;
-     flex-direction: row;
-     flex-wrap: wrap;
-     justify-content: center;
-     align-items: center;
-     gap: 20px;
-     width: 100%;
-     margin: auto;
-   }
-
-   .box-1 {
-     order: 1;
-   }
-
-   .box-3 {
-     order: 4;
-   }
-
-   .box-4 {
-     order: 3;
-   }
-
-   .box-5 {
-     order: 2;
-
-   }
-
-   .logo-terms {
-     position: absolute;
-     width: 100%;
-     height: 100vh;
-     /* Gör att bilden täcker hela skärmen */
-     background-image: url("assets/logo1.png");
-     /* Lägg in rätt sökväg */
-     background-size: contain;
-     /* Anpassar bilden */
-     background-position: top;
-     background-repeat: no-repeat;
-     opacity: 0.2;
-     /* Gör loggan transparent */
-     z-index: -1;
-     /* Lägger den bakom allt annat */
-   }
-
-   .termsprivacy {
-     display: flex;
-     justify-content: flex-start;
-     flex-direction: row;
-     align-items: stretch;
-     gap: 20px;
-     width: 90%;
-     margin: auto;
-     margin-bottom: 15px;
-   }
-
-   .terms-of-use {
-     display: flex;
-     flex-direction: column;
-     width: 45%;
-   }
-
-   .privacy-policy {
-     display: flex;
-     flex-direction: column;
-     width: 45%;
-   }
-
-   .footer {
-     display: grid;
-     grid-template-columns: repeat(3, 1fr);
-     grid-template-rows: auto auto;
-     align-items: center;
-     gap: 20px;
-     text-align: center;
-     width: 100%;
-     background: rgba(0, 0, 0, 0.6);
-   }
-
-   /* 📩 Email till vänster */
-   .contact {
-     grid-column: 1 / 4;
-     grid-row: 4 / 4;
-     font-size: 16px;
-     font-weight: bold;
-   }
-
-   /* 🎵 Sociala medier i mitten */
-   .icons {
-     grid-column: 2 / 4;
-     grid-row: 2 / 4;
-     display: flex;
-     justify-content: center;
-     gap: 15px;
-   }
-
-   /* 📜 Copyright & länkar till höger */
-   .copyright {
-     grid-column: 3 / 4;
-     grid-row: 1 / 4;
-     font-size: 14px;
-   }
-
-   /* ✍ Webdesign längst ner */
-   .design-by {
-     grid-column: 1 / 4;
-     grid-row: 2;
-     font-size: 12px;
-     opacity: 0.8;
-   }
- }
-
- /* -----------------------För iPads & små laptops (mellan 768px och 1023px)-------------------------- */
- @media (min-width: 768px) and (max-width: 1023px) {
-   .main {
-     display: grid;
-     grid-template-columns: repeat(2, 1fr);
-     /* Två kolumner */
-     gap: 20px;
-     max-width: 90%;
-     margin: auto;
-   }
-
-   .termsprivacy {
-     display: flex;
-     justify-content: center;
-     flex-direction: row;
-     gap: 20px;
-     width: 90%;
-     margin: auto;
-     margin-bottom: 15px;
-   }
-
-   .terms-of-use {
-     display: flex;
-     justify-content: center;
-     align-items: center;
-     width: 30%;
-   }
-
-   .privacy-policy {
-     display: flex;
-     flex-direction: column;
-     justify-content: center;
-     align-items: center;
-     width: 30%;
-   }
-
-   .footer {
-     display: grid;
-     grid-template-columns: repeat(3, 1fr);
-     /* Tre kolumner */
-     grid-template-rows: auto auto auto;
-     /* Två rader - en för innehåll, en för webdesign */
-     align-items: center;
-     justify-items: center;
-     gap: 10px;
-     text-align: center;
-     /* Gör så att den tar hela skärmens bredd */
-     /* Justera detta värde för att göra footern större eller mindre */
-     background: rgba(16, 16, 16, 0.498);
-     /* Mörkare bakgrund */
-   }
-
-   /* 📩 Email i första kolumnen */
-   .contact {
-     grid-column: 1 / 2;
-     grid-row: 1 / 4;
-   }
-
-   /* 🎵 Sociala medier i mitten */
-   .icons {
-     grid-column: 2 / 4;
-     grid-row: 1 / 4;
-   }
-
-   /* 📜 Copyright & länkar i tredje kolumnen */
-   .copyrights {
-     grid-column: 3 / 4;
-     grid-row: 1 / 4;
-   }
-
-   .policy {
-     grid-column: 3 / 4;
-     grid-row: 3 / 4;
-   }
-
-   /* ✍ Webdesign längst ner ensam */
-   .design-by {
-     grid-column: 1 / 4;
-     grid-row: 3 / 4;
-     text-align: center;
-   }
- }
-
- /* ====================== Anpassning för Laptops och större skärmar (1024px och uppåt) =============== */
- @media (min-width: 1024px) {
-   body {
-     background-image: url(assets/background3.jpg);
-     background-color: #000000;
-     height: 100%;
-     margin: 0;
-     padding: 0;
-   }
-
-   .logo-bookings {
-     position: absolute;
-     width: 500px;
-     height: 500px;
-     background-image: url("assets/logo1.png");
-     background-size: contain;
-     background-position: left;
-     background-repeat: no-repeat;
-     opacity: 0.9;
-     z-index: -2;
-   }
-
-
-   .main {
-     flex: 1;
-     display: flex;
-     flex-direction: column;
-     align-items: center;
-     justify-content: center;
-   }
-
-   /* 📌 Navbar - Justera placering */
-   .navbar {
-     display: flex;
-     justify-content: flex-end;
-     padding: 10px;
-   }
-
-   .navbar ul {
-     display: flex;
-     flex-direction: row;
-     align-items: flex-end;
-     list-style: none;
-     padding: 0;
-     gap: 10px;
-   }
-
-   .navbar a {
-     text-decoration: none;
-     text-transform: uppercase;
-     font-weight: bold;
-     padding: 10px;
-     font-size: 16px;
-     color: white;
-   }
-
-   /* ------------------------------------------- Formulär ------------------------------------------------ */
-   /* Formulär container */
-   .form-container {
-     flex: 1;
-     width: 100%;
-     max-width: 600px;
-     margin: 90px auto;
-     padding: 20px;
-     background: rgba(0, 0, 0, 0.607);
-     color: white;
-     border-radius: 10px;
-     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
-   }
-
-   /* Formulär layout */
-   form {
-     display: flex;
-     flex-direction: column;
-     justify-content: center;
-   }
-
-   /* Labels (för textfält och textarea) */
-   label {
-     margin-top: 10px;
-     cursor: pointer;
-     font-weight: bold;
-   }
-
-   /* Stil för textfält och textarea */
-   input[type="text"],
-   input[type="email"],
-   textarea {
-     width: 90%;
-     padding: 10px;
-     margin-top: 5px;
-     border-radius: 5px;
-     border: 1px solid #ccc;
-   }
-
-   /* Additional Info sektionen */
-   .additional-info {
-     display: flex;
-     flex-direction: column;
-     align-items: center;
-   }
-
-   /* Fokus-effekt på inputs */
-   input:focus,
-   textarea:focus {
-     outline: none;
-     border-color: crimson;
-     box-shadow: 0 0 5px crimson;
-   }
-
-   /* 📌 Fixad styling för radioknappar */
-   fieldset {
-     display: grid;
-     grid-template-columns: repeat(2, 1fr);
-     /* Två kolumner */
-     gap: 10px;
-     /* Jämnt mellanrum mellan alternativen */
-     border: none;
-     margin-top: 20px;
-     padding: 10px;
-     text-align: left;
-   }
-
-   /* Legenden centreras men hålls inom fieldset */
-   legend {
-     text-align: center;
-     font-weight: bold;
-     margin-bottom: 10px;
-   }
-
-   /* Stil för radio-knappar och deras labels */
-   fieldset label {
-     display: flex;
-     align-items: center;
-     gap: 8px;
-     /* Skapar mellanrum mellan knapp och text */
-     cursor: pointer;
-   }
-
-   /* Stil för själva radio-knappen */
-   fieldset input[type="radio"] {
-     margin: 0;
-     width: 16px;
-     height: 16px;
-     accent-color: crimson;
-     /* Ändrar färg på valda radioknappar */
-   }
-
-   /* Fix: Se till att bara radioknappar får anpassad stil */
-   label input[type="radio"] {
-     display: inline-block;
-     /* Behåll standard blockformat */
-   }
-
-   /* Knapp */
-   button {
-     margin-top: 20px;
-     padding: 12px;
-     background: rgb(58, 3, 14);
-     color: white;
-     border: none;
-     cursor: pointer;
-     font-size: 18px;
-     border-radius: 5px;
-     transition: 0.3s ease;
-   }
-
-   button:hover {
-     background: rgb(41, 4, 4);
-   }
-
-
-   .container {
-     display: flex;
-     justify-content: center;
-     flex-wrap: wrap;
-     width: 100%;
-   }
-
-   .box-1 {
-     width: 100%;
-   }
-
-   .box-3 {
-     width: 50%;
-   }
-
-   .box-4 {
-     width: 50%;
-     background: none;
-     width: 40%;
-   }
-
-   .box-5 {
-     width: 100%;
-     background: none;
-   }
-
-   .footer {
-     display: grid;
-     grid-template-columns: repeat(3, 1fr);
-     /* Tre kolumner */
-     grid-template-rows: auto auto auto;
-     /* Två rader - en för innehåll, en för webdesign */
-     align-items: center;
-     justify-items: center;
-     gap: 10px;
-     text-align: center;
-   }
-
-   /* 📩 Email i första kolumnen */
-   .contact {
-     grid-column: 1 / 2;
-     grid-row: 1 / 4;
-   }
-
-   /* 🎵 Sociala medier i mitten */
-   .icons {
-     grid-column: 2 / 4;
-     grid-row: 1 / 4;
-   }
-
-   /* 📜 Copyright & länkar i tredje kolumnen */
-   .copyrights {
-     grid-column: 3 / 4;
-     grid-row: 1 / 4;
-   }
-
-   .policy {
-     grid-column: 3 / 4;
-     grid-row: 3 / 4;
-   }
-
-   /* ✍ Webdesign längst ner ensam */
-   .design-by {
-     grid-column: 1 / 4;
-     grid-row: 3 / 4;
-     text-align: center;
-   }
- }
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-image: url(assets/background3.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-color: black;
+  height: 100%;
+}
+
+/* --------------------------- Logo ------------------------------- */
+.logo {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background-image: url("assets/logo1.png");
+  background-size: contain;
+  background-position: left;
+  background-repeat: no-repeat;
+  opacity: 1;
+  z-index: -2;
+}
+
+.logo img {
+  width: 100%;
+  height: auto;
+}
+
+/* Logo policy.html */
+.logo-policy {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  background-image: url("assets/logo1.png");
+  background-size: contain;
+  background-position: top;
+  background-repeat: no-repeat;
+  opacity: 0.9;
+  z-index: 1;
+}
+
+/* Header & Navigationsmenu */
+header {
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px;
+}
+
+h3 {
+  font-size: 20px;
+  margin: 0;
+  padding: 5px 0;
+  position: relative;
+  top: -5px;
+}
+
+.navbar {
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px;
+}
+
+.navbar ul {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  list-style: none;
+  padding: 0;
+  gap: 10px;
+}
+
+.navbar a {
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: bold;
+  padding: 10px;
+  font-size: 16px;
+  color: white;
+}
+
+.navbar a:hover {
+  text-decoration: underline !important;
+}
+
+/* Main content */
+main {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  max-width: 90%;
+  margin: auto;
+}
+
+
+/*  Boxes */
+.box-1,
+.box-3,
+.box-4 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 10px;
+}
+
+.box-1 {
+  color: white;
+  font-size: 18px;
+  text-align: justify;
+  margin-top: 80px;
+}
+
+.box-3 img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+
+}
+
+.box-4 {
+  background: rgba(0, 0, 0, 0.164);
+  color: white;
+  flex-wrap: wrap;
+  text-align: center;
+  line-height: 1.6;
+}
+
+.box-4 p {
+  font-size: 16px;
+  max-width: 90%;
+}
+
+.box-5 {
+  background: rgba(0, 0, 0, 0.164);
+  color: white;
+  flex-wrap: wrap;
+  text-align: center;
+  line-height: 1.6;
+  width: 100%;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.termsprivacy {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  color: white;
+  padding-top: 100px;
+}
+
+.terms-of-use {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 20px;
+}
+
+.privacy-policy {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 20px;
+  height: 100%;
+}
+
+/* ------------------------------------ Formulär ----------------------------------------- */
+
+.form-container {
+  flex: 1;
+  width: 90%;
+  max-width: 250px;
+  margin: 20px auto;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.607);
+  color: white;
+  border-radius: 10px;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+}
+
+/* Formulär layout */
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Labels (för textfält och textarea) */
+label {
+  margin-top: 10px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* Stil för textfält och textarea */
+input[type="text"],
+input[type="email"],
+textarea {
+  width: 90%;
+  padding: 10px;
+  margin-top: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+/* Additional Info sektionen */
+.additional-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Fokus-effekt på inputs */
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: crimson;
+  box-shadow: 0 0 5px crimson;
+}
+
+/* Fixad styling för radioknappar */
+fieldset {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  /* Två kolumner */
+  gap: 10px;
+  /* Jämnt mellanrum mellan alternativen */
+  border: none;
+  margin-top: 20px;
+  padding: 10px;
+  text-align: left;
+}
+
+/* Legenden centreras men hålls inom fieldset */
+legend {
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* Stil för radio-knappar och deras labels */
+fieldset label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  /* Skapar mellanrum mellan knapp och text */
+  cursor: pointer;
+}
+
+/* Stil för själva radio-knappen */
+fieldset input[type="radio"] {
+  margin: 0;
+  width: 16px;
+  height: 16px;
+  accent-color: crimson;
+  /* Ändrar färg på valda radioknappar */
+}
+
+/* Fix: Se till att bara radioknappar får anpassad stil */
+label input[type="radio"] {
+  display: inline-block;
+  /* Behåll standard blockformat */
+}
+
+/* Knapp */
+button {
+  margin-top: 20px;
+  padding: 12px;
+  background: rgb(58, 3, 14);
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  border-radius: 5px;
+  transition: 0.3s ease;
+}
+
+button:hover {
+  background: rgb(41, 4, 4);
+}
+
+/* ------------------------------------------------- Footer --------------------------------------------------- */
+footer {
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 20px 0;
+  width: 100%;
+  gap: 10px;
+}
+
+/* Email & Copyright */
+.footer-email {
+  order: 1;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+footer .section-2 {
+  display: flex;
+  flex-wrap: wrap;
+  width: 250px;
+  gap: 10px;
+  justify-content: center;
+}
+
+.footer-copyright {
+  font-size: 14px;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  font-size: 14px;
+}
+
+/* DESIGN BY */
+.design-by {
+  order: 5;
+  font-size: 13px;
+  font-size: 12px;
+  margin-top: 10px;
+  opacity: 0.8;
+}
+
+/* POLICY */
+.policy {
+  font-size: 13px;
+  font-size: 12px;
+  margin-top: 10px;
+  opacity: 0.8;
+}
+
+/* LINK STYLING */
+a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+a:visited {
+  color: white;
+}
+
+a:hover {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+/* --------- For iPads (768px - 1023px) --------- */
+@media (min-width: 768px) {
+  body {
+    background-image: url(assets/background3.jpg);
+    background-color: #000000;
+    /* Mörk bakgrundsfärg */
+  }
+
+  main {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    margin: auto;
+  }
+
+  .box-1 {
+    order: 1;
+  }
+
+  .box-3 {
+    order: 4;
+  }
+
+  .box-4 {
+    order: 3;
+  }
+
+  .box-5 {
+    order: 2;
+
+  }
+
+  .logo-policy {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    background-image: url("assets/logo1.png");
+    background-size: contain;
+    background-position: top;
+    background-repeat: no-repeat;
+    opacity: 0.2;
+    z-index: -1;
+  }
+
+  .termsprivacy {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    align-items: stretch;
+    gap: 20px;
+    width: 90%;
+    margin: auto;
+    margin-bottom: 15px;
+  }
+
+  .terms-of-use {
+    display: flex;
+    flex-direction: column;
+    width: 45%;
+  }
+
+  .privacy-policy {
+    display: flex;
+    flex-direction: column;
+    width: 45%;
+  }
+
+  footer {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto auto;
+    align-items: center;
+    gap: 20px;
+    text-align: center;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.6);
+  }
+
+  /*  Email till vänster */
+  .contact {
+    grid-column: 1 / 4;
+    grid-row: 4 / 4;
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+  /*  Sociala medier i mitten */
+  .icons {
+    grid-column: 2 / 4;
+    grid-row: 2 / 4;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+  }
+
+  /*  Copyright & länkar till höger */
+  .copyright {
+    grid-column: 3 / 4;
+    grid-row: 1 / 4;
+    font-size: 14px;
+  }
+
+  /*  Webdesign längst ner */
+  .design-by {
+    grid-column: 1 / 4;
+    grid-row: 2;
+    font-size: 12px;
+    opacity: 0.8;
+  }
+}
+
+/* ------------------------- For iPads & small laptops (min 768px max 1023px)-------------------------- */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .main {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    /* Två kolumner */
+    gap: 20px;
+    max-width: 90%;
+    margin: auto;
+  }
+
+  .termsprivacy {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    gap: 20px;
+    width: 90%;
+    margin: auto;
+    margin-bottom: 15px;
+  }
+
+  .terms-of-use {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+  }
+
+  .privacy-policy {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+  }
+
+  footer {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto auto auto;
+    align-items: center;
+    justify-items: center;
+    gap: 10px;
+    text-align: center;
+    background: rgba(16, 16, 16, 0.498);
+  }
+
+  /*  Email i första kolumnen */
+  .contact {
+    grid-column: 1 / 2;
+    grid-row: 1 / 4;
+  }
+
+  /*  Sociala medier i mitten */
+  .icons {
+    grid-column: 2 / 4;
+    grid-row: 1 / 4;
+  }
+
+  /*  Copyright & länkar i tredje kolumnen */
+  .copyrights {
+    grid-column: 3 / 4;
+    grid-row: 1 / 4;
+  }
+
+  .policy {
+    grid-column: 3 / 4;
+    grid-row: 3 / 4;
+  }
+
+  /*  Webdesign längst ner ensam */
+  .design-by {
+    grid-column: 1 / 4;
+    grid-row: 3 / 4;
+    text-align: center;
+  }
+}
+
+/* ----------------- Laptops / Larger screens (1024px )----------------- */
+@media (min-width: 1024px) {
+  body {
+    background-image: url(assets/background3.jpg);
+    background-color: #000000;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Logo bookings.html */
+  .logo-bookings {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background-image: url("assets/logo1.png");
+    background-size: contain;
+    background-position: left;
+    background-repeat: no-repeat;
+    opacity: 0.9;
+    z-index: -2;
+  }
+
+
+  .main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /*  Navbar - Justera placering */
+  .navbar {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px;
+  }
+
+  .navbar ul {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    list-style: none;
+    padding: 0;
+    gap: 10px;
+  }
+
+  .navbar a {
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 10px;
+    font-size: 16px;
+    color: white;
+  }
+
+  /* ------------------------------------------- Formulär ------------------------------------------------ */
+  .form-container {
+    flex: 1;
+    width: 100%;
+    max-width: 600px;
+    margin: 90px auto;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.607);
+    color: white;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+  }
+
+  /* Formulär layout */
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  /* Labels (för textfält och textarea) */
+  label {
+    margin-top: 10px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+
+  /* Stil för textfält och textarea */
+  input[type="text"],
+  input[type="email"],
+  textarea {
+    width: 90%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+
+  /* Additional Info sektionen */
+  .additional-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Fokus-effekt på inputs */
+  input:focus,
+  textarea:focus {
+    outline: none;
+    border-color: crimson;
+    box-shadow: 0 0 5px crimson;
+  }
+
+  /* Fixad styling för radioknappar */
+  fieldset {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    /* Två kolumner */
+    gap: 10px;
+    /* Jämnt mellanrum mellan alternativen */
+    border: none;
+    margin-top: 20px;
+    padding: 10px;
+    text-align: left;
+  }
+
+  /* Legenden centreras men hålls inom fieldset */
+  legend {
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  /* Stil för radio-knappar och deras labels */
+  fieldset label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    /* Skapar mellanrum mellan knapp och text */
+    cursor: pointer;
+  }
+
+  /* Stil för själva radio-knappen */
+  fieldset input[type="radio"] {
+    margin: 0;
+    width: 16px;
+    height: 16px;
+    accent-color: crimson;
+    /* Ändrar färg på valda radioknappar */
+  }
+
+  /* Fix: Se till att bara radioknappar får anpassad stil */
+  label input[type="radio"] {
+    display: inline-block;
+    /* Behåll standard blockformat */
+  }
+
+  /* Knapp */
+  button {
+    margin-top: 20px;
+    padding: 12px;
+    background: rgb(58, 3, 14);
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 5px;
+    transition: 0.3s ease;
+  }
+
+  button:hover {
+    background: rgb(41, 4, 4);
+  }
+
+  /* Main content */
+  .container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+
+  /* Boxes*/
+  .box-1 {
+    width: 30%;
+  }
+
+  .box-3 {
+    width: 40%;
+  }
+
+  .box-3 img {
+    width: 100%;
+  }
+
+  .box-4 {
+    width: 40%;
+    background: none;
+    width: 40%;
+  }
+
+  .box-5 {
+    width: 40%;
+    background: none;
+  }
+
+  /* ---------------------------------------PILLA EJ FUNKAR PRIMA --------------------------------*/
+  footer {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto auto auto;
+    align-items: center;
+    justify-items: center;
+    gap: 10px;
+    text-align: center;
+  }
+
+  /* Email i första kolumnen */
+  .contact {
+    grid-column: 1 / 2;
+    grid-row: 1 / 4;
+  }
+
+  /* Sociala medier i mitten */
+  .icons {
+    grid-column: 2 / 4;
+    grid-row: 1 / 4;
+  }
+
+  /* Copyright & länkar i tredje kolumnen */
+  .copyrights {
+    grid-column: 3 / 4;
+    grid-row: 1 / 4;
+  }
+
+  .policy {
+    grid-column: 3 / 4;
+    grid-row: 3 / 4;
+  }
+
+  /* Webdesign längst ner ensam */
+  .design-by {
+    grid-column: 1 / 4;
+    grid-row: 3 / 4;
+    text-align: center;
+  }
+}
