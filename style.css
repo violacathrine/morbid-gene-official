@@ -98,7 +98,7 @@ h3 {
   margin: 0;
   padding: 5px 0;
   position: relative;
-  top: -5px;
+  top: 5px;
   text-transform: uppercase;
 }
 
@@ -179,15 +179,17 @@ main {
 }
 
 .band-photo {
-  order: 2;
+  order: 3;
   background: none;
 }
 
 .band-text {
-  order: 3;
+  order: 2;
 }
 
 .latest-news {
+  margin: 10px;
+  background: rgba(0, 0, 0, 0.386);
   order: 4;
 }
 
@@ -219,7 +221,6 @@ main {
 }
 
 .upcoming-gigs {
-  background: rgba(255, 0, 0, 0.416);
   color: white;
   flex-wrap: wrap;
   text-align: center;
@@ -229,15 +230,16 @@ main {
   margin-bottom: 10px;
   padding: 10px;
   font-weight: bold;
+  border-radius: 30px;
   animation: blink-color 1s infinite alternate;
 }
 
 @keyframes blink-color {
   0% {
-    background: crimson;
+    background: rgba(75, 5, 19, 0.374);
   }
 
-  100% {
+  s 100% {
     background: rgba(0, 0, 0, 0);
   }
 }
@@ -580,19 +582,19 @@ a:hover {
   }
 
   .band-text {
-    order: 1;
+    order: 2;
   }
 
   .band-photo {
-    order: 4;
-  }
-
-  .latest-news {
     order: 3;
   }
 
+  .latest-news {
+    order: 4;
+  }
+
   .upcoming-gigs {
-    order: 2;
+    order: 1;
   }
 
   .policy-page logo {
@@ -1250,6 +1252,14 @@ a:hover {
     background: black;
   }
 
+  .policy-page footer {
+    background: rgba(0, 0, 0, 0.66);
+  }
+
+  .booking-page footer {
+    background: rgba(0, 0, 0, 0.66);
+  }
+
   .booking-page footer {
     position: absolute;
     display: grid;
@@ -1259,7 +1269,6 @@ a:hover {
     justify-items: center;
     gap: 10px;
     text-align: center;
-    background: black;
   }
 
   .contact {
