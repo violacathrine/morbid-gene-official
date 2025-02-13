@@ -230,13 +230,12 @@ main {
   margin-bottom: 10px;
   padding: 10px;
   font-weight: bold;
-  border-radius: 30px;
   animation: blink-color 1s infinite alternate;
 }
 
 @keyframes blink-color {
   0% {
-    background: rgba(75, 5, 19, 0.374);
+    background: rgba(255, 0, 0, 0.231);
   }
 
   100% {
@@ -1063,25 +1062,42 @@ a:hover {
 
   .cta-button {
     position: absolute;
-    /* Gör att vi kan placera den exakt */
     top: 20px;
-    /* Avstånd från toppen */
     left: 20px;
-    /* Avstånd från vänster */
     display: inline-block;
     padding: 20px 20px;
     background: crimson;
-    /* Röd knapp */
     color: white;
     font-size: 20px;
     font-weight: bold;
     text-decoration: none;
-    transition: background 0.3s ease;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+    animation: blink 1.5s infinite ease-in-out;
   }
 
   .cta-button:hover {
     background: darkred;
-    /* Mörkröd vid hover */
+    animation: none;
+    /* Stoppa animeringen vid hover */
+    transform: scale(1.1);
+  }
+
+  @keyframes blink {
+    0% {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    50% {
+      opacity: 0.6;
+      transform: scale(1.1);
+    }
+
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
   }
 
 
