@@ -11,7 +11,7 @@ body {
   height: 100%;
 }
 
-/* --------------------------- Logo ------------------------------- */
+/* LOGO STYLING */
 .logo {
   position: absolute;
   width: 300px;
@@ -20,17 +20,11 @@ body {
   background-size: contain;
   background-position: left;
   background-repeat: no-repeat;
-  opacity: 1;
+  opacity: 0.3;
   z-index: -2;
 }
 
-.logo img {
-  width: 100%;
-  height: auto;
-}
-
-/* Logo policy.html */
-.logo-policy {
+.policy-page logo {
   position: absolute;
   width: 100%;
   height: 100vh;
@@ -42,12 +36,62 @@ body {
   z-index: -1;
 }
 
-/* Header & Navigationsmenu */
+/* HEADER */
 header {
   display: flex;
   justify-content: flex-end;
   padding: 10px;
 }
+
+.booking-page .policy-page header {
+  background: none;
+}
+
+/* HERO SECTION STYLING */
+.hero {
+  position: relative;
+  width: 30%;
+  height: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+/* HERO VIDEO */
+.hero-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.hero-text {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  color: white;
+  font-size: 18px;
+  background: rgba(0, 0, 0, 0.5);
+  color: rgb(107, 107, 107);
+  padding: 10px 15px;
+  border-radius: 5px;
+}
+
+.cta-button {
+  display: none;
+}
+
+.cta-button:hover {
+  background: darkred;
+  /* Mörkröd vid hover */
+}
+
 
 h3 {
   font-size: 20px;
@@ -55,12 +99,19 @@ h3 {
   padding: 5px 0;
   position: relative;
   top: -5px;
+  text-transform: uppercase;
 }
 
 .navbar {
   display: flex;
   justify-content: flex-end;
+  align-items: flex-end;
   padding: 10px;
+  width: 100%;
+}
+
+.booking-page navbar {
+  background: rgba(0, 0, 0, 0);
 }
 
 .navbar ul {
@@ -85,7 +136,7 @@ h3 {
   text-decoration: underline !important;
 }
 
-/* Main content */
+/* MAIN CONTENT STYLING */
 main {
   display: flex;
   flex-direction: column;
@@ -99,11 +150,22 @@ main {
   margin: auto;
 }
 
+.policy-page main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  color: white;
+  padding-top: 100px;
+}
 
-/*  Boxes */
-.band-text,
+
+/* BOXES */
 .band-photo,
-.latest-news {
+.latest-news,
+.upcoming-gigs {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -112,22 +174,39 @@ main {
   margin: 10px;
 }
 
+.upcoming-gigs {
+  order: 1;
+}
+
+.band-photo {
+  order: 2;
+  background: none;
+}
+
+.band-text {
+  order: 3;
+}
+
+.latest-news {
+  order: 4;
+}
+
 .band-text {
   color: white;
   font-size: 18px;
   text-align: justify;
-  margin-top: 80px;
+  margin-top: 10px;
 }
 
 .band-photo img {
   width: 100%;
   height: auto;
   object-fit: cover;
+  background: none;
 
 }
 
 .latest-news {
-  background: rgba(0, 0, 0, 0.164);
   color: white;
   flex-wrap: wrap;
   text-align: center;
@@ -140,25 +219,27 @@ main {
 }
 
 .upcoming-gigs {
-  background: rgba(0, 0, 0, 0.164);
+  background: rgba(255, 0, 0, 0.416);
   color: white;
   flex-wrap: wrap;
   text-align: center;
   line-height: 1.6;
-  width: 100%;
+  width: 75%;
+  margin-top: 25px;
   margin-bottom: 10px;
+  padding: 10px;
   font-weight: bold;
+  animation: blink-color 1s infinite alternate;
 }
 
-.policy-html {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  width: 100%;
-  color: white;
-  padding-top: 100px;
+@keyframes blink-color {
+  0% {
+    background: crimson;
+  }
+
+  100% {
+    background: rgba(0, 0, 0, 0);
+  }
 }
 
 .terms-of-use {
@@ -176,8 +257,7 @@ main {
   height: 100%;
 }
 
-/* ------------------------------------ Formulär ----------------------------------------- */
-
+/* HTML FORM STYLING */
 .form-container {
   flex: 1;
   width: 90%;
@@ -190,21 +270,21 @@ main {
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
 }
 
-/* Formulär layout */
+/* FORM LAYOUT */
 form {
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
-/* Labels (för textfält och textarea) */
+/* LABEL-STYLING */
 label {
   margin-top: 10px;
-  cursor: pointer;
   font-weight: bold;
 }
 
-/* Stil för textfält och textarea */
+
+/* INPUT & TEXTAREA STYLING */
 input[type="text"],
 input[type="email"],
 textarea {
@@ -215,14 +295,7 @@ textarea {
   border: 1px solid #ccc;
 }
 
-/* Additional Info sektionen */
-.additional-info {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-/* Fokus-effekt på inputs */
+/* FOKUS EFFECTS ON INPUT */
 input:focus,
 textarea:focus {
   outline: none;
@@ -230,51 +303,62 @@ textarea:focus {
   box-shadow: 0 0 5px crimson;
 }
 
-/* Fixad styling för radioknappar */
+
+/* RADIOBUTTONS */
 fieldset {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  /* Två kolumner */
   gap: 10px;
-  /* Jämnt mellanrum mellan alternativen */
   border: none;
   margin-top: 20px;
   padding: 10px;
-  text-align: left;
 }
 
-/* Legenden centreras men hålls inom fieldset */
-legend {
-  text-align: center;
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-
-/* Stil för radio-knappar och deras labels */
 fieldset label {
   display: flex;
   align-items: center;
   gap: 8px;
-  /* Skapar mellanrum mellan knapp och text */
-  cursor: pointer;
 }
 
-/* Stil för själva radio-knappen */
+fieldset label:nth-child(4) {
+  grid-column: 1 / span 2;
+  display: flex;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+
+/* LEGEND STYLING */
+legend {
+  text-align: left;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* RADIOBUTTON STYLING */
 fieldset input[type="radio"] {
   margin: 0;
   width: 16px;
   height: 16px;
   accent-color: crimson;
-  /* Ändrar färg på valda radioknappar */
 }
 
-/* Fix: Se till att bara radioknappar får anpassad stil */
-label input[type="radio"] {
-  display: inline-block;
-  /* Behåll standard blockformat */
+input[type="radio"]:focus {
+  outline: none;
+  box-shadow: none;
 }
 
-/* Knapp */
+.additional-info textarea {
+  width: 100%;
+  min-height: 100px;
+  resize: vertical;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  box-sizing: border-box;
+}
+
+
+/* SUBMIT BUTTON STYLING */
 button {
   margin-top: 20px;
   padding: 12px;
@@ -287,11 +371,13 @@ button {
   transition: 0.3s ease;
 }
 
+/* HOVER-EFFEKT PÅ KNAPP */
 button:hover {
   background: rgb(41, 4, 4);
 }
 
-/* ------------------------------------------------- Footer --------------------------------------------------- */
+
+/* FOOTER */
 footer {
   background: rgba(0, 0, 0, 0.6);
   color: white;
@@ -304,7 +390,6 @@ footer {
   gap: 10px;
 }
 
-/* Email & Copyright */
 .contact {
   order: 1;
   font-weight: bold;
@@ -324,18 +409,16 @@ footer {
   order: 3;
 }
 
-/* DESIGN BY */
-.design-by {
-  order: 5;
+.policy {
+  order: 4;
   font-size: 13px;
   font-size: 12px;
   margin-top: 10px;
   opacity: 0.8;
 }
 
-/* POLICY */
-.policy {
-  order: 4;
+.webdesign {
+  order: 5;
   font-size: 13px;
   font-size: 12px;
   margin-top: 10px;
@@ -357,12 +440,132 @@ a:hover {
   color: #ffffff;
 }
 
-/* --------- For iPads (768px - 1023px) --------- */
+/* ----------------------------------FOR IPADS (768px - 1023px)--------------------------- */
 @media (min-width: 768px) {
   body {
     background-image: url(assets/background3.jpg);
     background-color: #000000;
-    /* Mörk bakgrundsfärg */
+  }
+
+  .policy-page h1 {
+    text-align: left;
+  }
+
+  /* HTML FORM STYLING */
+  .form-container {
+    flex: 1;
+    width: 90%;
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.607);
+    color: white;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+  }
+
+  /* FORM LAYOUT */
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  /* LABEL-STYLING */
+  label {
+    margin-top: 10px;
+    font-weight: bold;
+  }
+
+
+  /* INPUT & TEXTAREA STYLING */
+  input[type="text"],
+  input[type="email"],
+  textarea {
+    width: 90%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+
+  /* FOKUS EFFECTS ON INPUT */
+  input:focus,
+  textarea:focus {
+    outline: none;
+    border-color: crimson;
+    box-shadow: 0 0 5px crimson;
+  }
+
+  /* RADIOBUTTONS */
+  fieldset {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    border: none;
+    margin-top: 20px;
+    padding: 10px;
+  }
+
+  fieldset label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  fieldset label:nth-child(4) {
+    grid-column: 1 / span 2;
+    display: flex;
+    width: 100%;
+    margin-bottom: 15px;
+  }
+
+  /* LEGEND STYLING */
+  legend {
+    text-align: left;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  /* RADIOBUTTON STYLING */
+  fieldset input[type="radio"] {
+    margin: 0;
+    width: 16px;
+    height: 16px;
+    accent-color: crimson;
+  }
+
+  input[type="radio"]:focus {
+    outline: none;
+    box-shadow: none;
+  }
+
+  .additional-info textarea {
+    width: 100%;
+    min-height: 100px;
+    resize: vertical;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    box-sizing: border-box;
+  }
+
+
+  /* SUBMIT BUTTON STYLING */
+  button {
+    margin-top: 20px;
+    padding: 12px;
+    background: rgb(58, 3, 14);
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 5px;
+    transition: 0.3s ease;
+  }
+
+  /* HOVER-EFFEKT PÅ KNAPP */
+  button:hover {
+    background: rgb(41, 4, 4);
   }
 
   main {
@@ -392,7 +595,7 @@ a:hover {
     order: 2;
   }
 
-  .logo-policy {
+  .policy-page logo {
     position: absolute;
     width: 100%;
     height: 100vh;
@@ -404,7 +607,7 @@ a:hover {
     z-index: -1;
   }
 
-  .policy-html {
+  .policy-page main {
     display: flex;
     justify-content: flex-start;
     flex-direction: row;
@@ -417,12 +620,14 @@ a:hover {
 
   .terms-of-use {
     display: flex;
+    justify-content: flex-start;
     flex-direction: column;
     width: 45%;
   }
 
   .privacy-policy {
     display: flex;
+    justify-content: flex-start;
     flex-direction: column;
     width: 45%;
   }
@@ -435,10 +640,9 @@ a:hover {
     gap: 20px;
     text-align: center;
     width: 100%;
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.664);
   }
 
-  /*  Email till vänster */
   .contact {
     grid-column: 1 / 2;
     grid-row: 4 / 4;
@@ -446,7 +650,6 @@ a:hover {
     font-weight: bold;
   }
 
-  /*  Sociala medier i mitten */
   .icons {
     grid-column: 2 / 3;
     grid-row: 2 / 4;
@@ -455,15 +658,13 @@ a:hover {
     gap: 15px;
   }
 
-  /*  Copyright & länkar till höger */
   .copyright {
     grid-column: 3 / 4;
     grid-row: 1 / 4;
     font-size: 14px;
   }
 
-  /*  Webdesign längst ner */
-  .design-by {
+  .webdesign {
     grid-column: 1 / 4;
     grid-row: 3 / 4;
     font-size: 12px;
@@ -471,8 +672,206 @@ a:hover {
   }
 }
 
-/* ------------------------- For iPads & small laptops (min 768px max 1023px)-------------------------- */
+/*  FOR IPADS AND SMALL LAPTOPS - Is this unecessary?? */
 @media (min-width: 768px) and (max-width: 1023px) {
+
+  .policy-page header {
+    background: none;
+  }
+
+  .policy-page nav {
+    background: none;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  header {
+    background: black;
+  }
+
+  .navbar {
+    background: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .navbar ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    gap: 10px;
+  }
+
+  .navbar a {
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 10px;
+    font-size: 16px;
+    color: white;
+  }
+
+  /* HERO SECTION */
+  .hero {
+    background: black;
+    position: relative;
+    width: 100%;
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+    z-index: -2;
+  }
+
+  /* HERO VIDEO */
+  .hero-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 769px;
+    height: 412px;
+    object-fit: cover;
+    /* Ser till att videon täcker hela bakgrunden */
+    z-index: -1;
+  }
+
+  .hero-text {
+    position: absolute;
+    bottom: 18px;
+    right: 18px;
+    font-size: 12px;
+    padding: 10px 15px;
+    border-radius: 5px;
+  }
+
+  /* HTML FORM STYLING */
+  .form-container {
+    flex: 1;
+    width: 100%;
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.607);
+    color: white;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+  }
+
+  /* FORM LAYOUT */
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  /* LABEL-STYLING */
+  label {
+    margin-top: 10px;
+    font-weight: bold;
+  }
+
+
+  /* INPUT & TEXTAREA STYLING */
+  input[type="text"],
+  input[type="email"],
+  textarea {
+    width: 90%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+
+  /* FOKUS EFFECTS ON INPUT */
+  input:focus,
+  textarea:focus {
+    outline: none;
+    border-color: crimson;
+    box-shadow: 0 0 5px crimson;
+  }
+
+
+  /* RADIOBUTTONS */
+  fieldset {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    border: none;
+    margin-top: 20px;
+    padding: 10px;
+  }
+
+  fieldset label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  fieldset label:nth-child(4) {
+    grid-column: 1 / span 2;
+    display: flex;
+    width: 100%;
+    margin-bottom: 15px;
+  }
+
+
+  /* LEGEND STYLING */
+  legend {
+    text-align: left;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  /* RADIOBUTTON STYLING */
+  fieldset input[type="radio"] {
+    margin: 0;
+    width: 16px;
+    height: 16px;
+    accent-color: crimson;
+  }
+
+  input[type="radio"]:focus {
+    outline: none;
+    box-shadow: none;
+  }
+
+  .additional-info textarea {
+    width: 90%;
+    min-height: 100px;
+    resize: vertical;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    box-sizing: border-box;
+  }
+
+  /* SUBMIT BUTTON STYLING */
+  button {
+    margin: 20px auto;
+    width: 50%;
+    margin-top: 20px;
+    padding: 12px;
+    background: rgb(58, 3, 14);
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 5px;
+    transition: 0.3s ease;
+  }
+
+  /* HOVER-EFFEKT PÅ KNAPP */
+  button:hover {
+    background: rgb(41, 4, 4);
+  }
+
   .main {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -482,7 +881,11 @@ a:hover {
     margin: auto;
   }
 
-  .policy-html {
+  .band-text {
+    margin-top: 30px;
+  }
+
+  .policy-page main {
     display: flex;
     justify-content: center;
     flex-direction: row;
@@ -515,22 +918,19 @@ a:hover {
     justify-items: center;
     gap: 10px;
     text-align: center;
-    background: rgba(16, 16, 16, 0.498);
+    background: rgba(16, 16, 16, 0.632);
   }
 
-  /*  Email i första kolumnen */
   .contact {
     grid-column: 1 / 2;
     grid-row: 1 / 4;
   }
 
-  /*  Sociala medier i mitten */
   .icons {
     grid-column: 2 / 3;
     grid-row: 1 / 4;
   }
 
-  /*  Copyright & länkar i tredje kolumnen */
   .copyrights {
     grid-column: 3 / 4;
     grid-row: 1 / 4;
@@ -541,15 +941,14 @@ a:hover {
     grid-row: 3 / 4;
   }
 
-  /*  Webdesign längst ner ensam */
-  .design-by {
+  .webdesign {
     grid-column: 1 / 2;
     grid-row: 3 / 4;
     text-align: center;
   }
 }
 
-/* ----------------- Laptops / Larger screens (1024px )----------------- */
+/* LAPTOPS / LARGER SCREENS (1024px) */
 @media (min-width: 1024px) {
   body {
     background-image: url(assets/background3.jpg);
@@ -559,8 +958,11 @@ a:hover {
     padding: 0;
   }
 
-  /* Logo bookings.html */
-  .logo-bookings {
+  .logo {
+    display: none;
+  }
+
+  .booking-page logo {
     position: absolute;
     width: 500px;
     height: 500px;
@@ -572,19 +974,30 @@ a:hover {
     z-index: -2;
   }
 
-  .main {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  header {
+    background: black;
   }
 
-  /*  Navbar - Justera placering */
+  .booking-page header {
+    background: none;
+  }
+
+  /* NAVIGATION MENU */
   .navbar {
+    background: black;
     display: flex;
     justify-content: flex-end;
-    padding: 10px;
+    padding: 0px;
+    margin-top: 10px;
+  }
+
+  /* NAVIGATION MENU BOOKING-PAGE */
+  .booking-page nav {
+    background: none;
+    display: flex;
+    justify-content: flex-end;
+    padding: 0px;
+    margin-top: 10px;
   }
 
   .navbar ul {
@@ -605,12 +1018,82 @@ a:hover {
     color: white;
   }
 
-  /* ------------------------------------------- Formulär ------------------------------------------------ */
+  /* HERO SECTION */
+  .hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+  }
+
+  /* HERO VIDEO */
+  .hero-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Ser till att videon täcker hela bakgrunden */
+    z-index: -1;
+  }
+
+  .cta-button {
+    position: absolute;
+    /* Gör att vi kan placera den exakt */
+    top: 20px;
+    /* Avstånd från toppen */
+    left: 20px;
+    /* Avstånd från vänster */
+    display: inline-block;
+    padding: 20px 20px;
+    background: crimson;
+    /* Röd knapp */
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background 0.3s ease;
+  }
+
+  .cta-button:hover {
+    background: darkred;
+    /* Mörkröd vid hover */
+  }
+
+
+  /*  MAIN CONTENT */
+  .main {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+
+  .booking-page html,
+  .booking-page body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .booking-page main {
+    min-height: 75vh;
+  }
+
+
+  /* HTML FORM STYLING */
   .form-container {
     flex: 1;
     width: 100%;
-    max-width: 600px;
-    margin: 90px auto;
+    max-width: 650px;
+    margin: 20px auto;
     padding: 20px;
     background: rgba(0, 0, 0, 0.607);
     color: white;
@@ -618,39 +1101,32 @@ a:hover {
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
   }
 
-  /* Formulär layout */
+  /* FORM LAYOUT */
   form {
     display: flex;
     flex-direction: column;
     justify-content: center;
   }
 
-  /* Labels (för textfält och textarea) */
+  /* LABEL-STYLING */
   label {
     margin-top: 10px;
-    cursor: pointer;
     font-weight: bold;
   }
 
-  /* Stil för textfält och textarea */
+
+  /* INPUT & TEXTAREA STYLING */
   input[type="text"],
   input[type="email"],
   textarea {
-    width: 90%;
+    width: 95%;
     padding: 10px;
     margin-top: 5px;
     border-radius: 5px;
     border: 1px solid #ccc;
   }
 
-  /* Additional Info sektionen */
-  .additional-info {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  /* Fokus-effekt på inputs */
+  /* FOKUS EFFECTS ON INPUT */
   input:focus,
   textarea:focus {
     outline: none;
@@ -658,53 +1134,66 @@ a:hover {
     box-shadow: 0 0 5px crimson;
   }
 
-  /* Fixad styling för radioknappar */
+
+  /* RADIOBUTTONS */
   fieldset {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    /* Två kolumner */
     gap: 10px;
-    /* Jämnt mellanrum mellan alternativen */
     border: none;
     margin-top: 20px;
     padding: 10px;
-    text-align: left;
   }
 
-  /* Legenden centreras men hålls inom fieldset */
-  legend {
-    text-align: center;
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
-
-  /* Stil för radio-knappar och deras labels */
   fieldset label {
     display: flex;
     align-items: center;
     gap: 8px;
-    /* Skapar mellanrum mellan knapp och text */
-    cursor: pointer;
   }
 
-  /* Stil för själva radio-knappen */
+  fieldset label:nth-child(4) {
+    grid-column: 1 / span 2;
+    display: flex;
+    width: 100%;
+    margin-bottom: 15px;
+  }
+
+
+  /* LEGEND STYLING */
+  legend {
+    text-align: left;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  /* RADIOBUTTON STYLING */
   fieldset input[type="radio"] {
     margin: 0;
     width: 16px;
     height: 16px;
     accent-color: crimson;
-    /* Ändrar färg på valda radioknappar */
   }
 
-  /* Fix: Se till att bara radioknappar får anpassad stil */
-  label input[type="radio"] {
-    display: inline-block;
-    /* Behåll standard blockformat */
+  input[type="radio"]:focus {
+    outline: none;
+    box-shadow: none;
   }
 
-  /* Knapp */
+  .additional-info textarea {
+    width: 100%;
+    min-height: 100px;
+    resize: vertical;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    box-sizing: border-box;
+  }
+
+
+  /* SUBMIT BUTTON STYLING */
   button {
     margin-top: 20px;
+    margin: 20px auto;
+    width: 50%;
     padding: 12px;
     background: rgb(58, 3, 14);
     color: white;
@@ -715,43 +1204,41 @@ a:hover {
     transition: 0.3s ease;
   }
 
+  /* HOVER-EFFEKT PÅ KNAPP */
   button:hover {
     background: rgb(41, 4, 4);
   }
 
-  /* Main content */
-  .container {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    width: 100%;
+  .policy-page nav {
+    background: none;
   }
 
-  /* Boxes*/
+  .policy-page header {
+    background: none;
+  }
+
+  /* BOXES */
   .band-text {
-    width: 30%;
+    display: none;
   }
 
   .band-photo {
-    width: 40%;
+    display: none;
   }
 
   .band-photo img {
-    width: 100%;
+    display: none;
   }
 
   .latest-news {
-    width: 40%;
-    background: none;
-    width: 40%;
+    display: none;
   }
 
   .upcoming-gigs {
-    width: 40%;
-    background: none;
+    display: none;
   }
 
-  /* ---------------------------------------PILLA EJ FUNKAR PRIMA --------------------------------*/
+  /* FOOTER */
   footer {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -760,22 +1247,32 @@ a:hover {
     justify-items: center;
     gap: 10px;
     text-align: center;
+    background: black;
   }
 
-  /* Email i första kolumnen */
+  .booking-page footer {
+    position: absolute;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto auto auto;
+    align-items: center;
+    justify-items: center;
+    gap: 10px;
+    text-align: center;
+    background: black;
+  }
+
   .contact {
     grid-column: 1 / 2;
     grid-row: 1 / 4;
   }
 
-  /* Sociala medier i mitten */
   .icons {
     width: 400px;
     grid-column: 2 / 3;
     grid-row: 1 / 4;
   }
 
-  /* Copyright & länkar i tredje kolumnen */
   .copyrights {
     grid-column: 3 / 4;
     grid-row: 1 / 4;
@@ -786,8 +1283,7 @@ a:hover {
     grid-row: 4 / 4;
   }
 
-  /* Webdesign längst ner ensam */
-  .design-by {
+  .webdesign {
     grid-column: 1 / 2;
     grid-row: 4 / 4;
     text-align: center;
