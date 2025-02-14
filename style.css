@@ -8,7 +8,6 @@ body {
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-color: black;
-  height: 100%;
 }
 
 /* LOGO STYLING */
@@ -24,7 +23,7 @@ body {
   z-index: -2;
 }
 
-.policy-page logo {
+.policy-page .logo {
   position: absolute;
   width: 100%;
   height: 100vh;
@@ -32,9 +31,14 @@ body {
   background-size: contain;
   background-position: top;
   background-repeat: no-repeat;
-  opacity: 0.9;
+  opacity: 0.3;
   z-index: -1;
 }
+
+.booking-page .logo {
+display: none;
+}
+
 
 /* HEADER */
 header {
@@ -43,44 +47,18 @@ header {
   padding: 10px;
 }
 
-.booking-page .policy-page header {
-  background: none;
-}
-
 /* HERO SECTION STYLING */
 .hero {
-  position: relative;
-  width: 30%;
-  height: 30%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  overflow: hidden;
+display: none;
 }
 
 /* HERO VIDEO */
 .hero-video {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: -1;
+display: none;
 }
 
 .hero-text {
-  position: absolute;
-  bottom: 20px;
-  right: 20px;
-  color: white;
-  font-size: 18px;
-  background: rgba(0, 0, 0, 0.5);
-  color: rgb(107, 107, 107);
-  padding: 10px 15px;
-  border-radius: 5px;
+display: none;
 }
 
 .cta-button {
@@ -88,8 +66,8 @@ header {
 }
 
 .cta-button:hover {
-  background: darkred;
-  /* Mörkröd vid hover */
+background: darkred;
+transform: scale(1.1);
 }
 
 
@@ -102,16 +80,13 @@ h3 {
   text-transform: uppercase;
 }
 
+  /* NAVIGATION MENU */
 .navbar {
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
   padding: 10px;
   width: 100%;
-}
-
-.booking-page navbar {
-  background: rgba(0, 0, 0, 0);
 }
 
 .navbar ul {
@@ -159,6 +134,21 @@ main {
   width: 100%;
   color: white;
   padding-top: 100px;
+}
+
+.terms-of-use {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 20px;
+}
+
+.privacy-policy {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 20px;
+  height: 100%;
 }
 
 
@@ -243,26 +233,12 @@ main {
   }
 }
 
-.terms-of-use {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  padding: 20px;
-}
 
-.privacy-policy {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  padding: 20px;
-  height: 100%;
-}
 
 /* HTML FORM STYLING */
 .form-container {
   flex: 1;
   width: 90%;
-  max-width: 250px;
   margin: 20px auto;
   padding: 20px;
   background: rgba(0, 0, 0, 0.607);
@@ -358,6 +334,11 @@ input[type="radio"]:focus {
   box-sizing: border-box;
 }
 
+textarea {
+  font-family: inherit; /* Ärver fonten från body */
+}
+
+
 
 /* SUBMIT BUTTON STYLING */
 button {
@@ -410,20 +391,18 @@ footer {
   order: 3;
 }
 
-.policy {
-  order: 4;
-  font-size: 13px;
+.policy, .webdesign {
   font-size: 12px;
   margin-top: 10px;
   opacity: 0.8;
 }
 
+.policy {
+  order: 4;
+}
+
 .webdesign {
   order: 5;
-  font-size: 13px;
-  font-size: 12px;
-  margin-top: 10px;
-  opacity: 0.8;
 }
 
 /* LINK STYLING */
@@ -441,22 +420,128 @@ a:hover {
   color: #ffffff;
 }
 
-/* ----------------------------------FOR IPADS (768px - 1023px)--------------------------- */
+/* FOR IPADS (768px - 1023px)*/
 @media (min-width: 768px) {
   body {
     background-image: url(assets/background3.jpg);
     background-color: #000000;
   }
 
+  header {
+    background: black;
+  }
+
+  .navbar {
+    background: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .navbar ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    gap: 10px;
+  }
+
+  .navbar a {
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 10px;
+    font-size: 16px;
+    color: white;
+  }
+
+  /* POLICY PAGE */
+  .policy-page header {
+    background: none;
+  }
+
   .policy-page h1 {
     text-align: left;
   }
+
+  .policy-page nav {
+    background: none;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  .policy-page main {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    gap: 20px;
+    width: 90%;
+    margin: auto;
+    margin-bottom: 15px;
+  }
+
+  .terms-of-use {
+    display: flex;
+    justify-content: center;
+    align-items: left;
+    width: 35%;
+  }
+
+  .privacy-policy {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    width: 35%;
+  }
+
+   /* HERO SECTION */
+   .hero {
+    background: black;
+    position: relative;
+    width: 100%;
+    height: 50vh;
+    display: block;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+    z-index: -2;
+  }
+
+  /* HERO VIDEO */
+  .hero-video {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 769px;
+    height: 412px;
+    object-fit: cover;
+    /* Ser till att videon täcker hela bakgrunden */
+    z-index: -1;
+  }
+
+  .hero-text {
+    display: block;
+    position: absolute;
+    bottom: 18px;
+    right: 18px;
+    font-size: 12px;
+    padding: 10px 15px;
+    border-radius: 5px;
+  }
+
 
   /* HTML FORM STYLING */
   .form-container {
     flex: 1;
     width: 90%;
-    max-width: 400px;
+    max-width: 600px;
     margin: 20px auto;
     padding: 20px;
     background: rgba(0, 0, 0, 0.607);
@@ -542,7 +627,7 @@ a:hover {
   }
 
   .additional-info textarea {
-    width: 100%;
+    width: 90%;
     min-height: 100px;
     resize: vertical;
     word-wrap: break-word;
@@ -553,7 +638,10 @@ a:hover {
 
   /* SUBMIT BUTTON STYLING */
   button {
+    background: rgb(58, 3, 14);
     margin-top: 20px;
+    width: 50%;
+    margin: 20px auto;
     padding: 12px;
     background: rgb(58, 3, 14);
     color: white;
@@ -581,6 +669,7 @@ a:hover {
   }
 
   .band-text {
+    margin-top: 30px;
     order: 2;
   }
 
@@ -633,363 +722,83 @@ a:hover {
     width: 45%;
   }
 
-  footer {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: auto auto;
-    align-items: center;
-    gap: 20px;
-    text-align: center;
-    width: 100%;
-    background: rgba(0, 0, 0, 0.664);
-  }
+  @media (min-width: 768px) {
 
-  .contact {
-    grid-column: 1 / 2;
-    grid-row: 4 / 4;
-    font-size: 16px;
-    font-weight: bold;
-  }
+    .booking-page .logo {
+      display: none;
+    }
 
-  .icons {
-    grid-column: 2 / 3;
-    grid-row: 2 / 4;
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-  }
+    footer {
+        display: grid;                        
+        grid-template-columns: repeat(3, 1fr); 
+        grid-template-rows: auto auto;         
+        gap: 20px;                            
+        align-items: center;                  
+        text-align: center;                   
+        background: rgba(0, 0, 0, 0.664);     
+        padding: 20px 0;                      
+    }
 
-  .copyright {
-    grid-column: 3 / 4;
-    grid-row: 1 / 4;
-    font-size: 14px;
-  }
+    /* Första raden - övre delen av footern */
+    .contact {
+        grid-column: 1 / 2;                   
+        grid-row: 1 / 2;                      
+        font-size: 16px;
+        font-weight: bold;
+    }
 
-  .webdesign {
-    grid-column: 1 / 4;
-    grid-row: 3 / 4;
-    font-size: 12px;
-    opacity: 0.8;
-  }
-}
+    .icons {
+        grid-column: 2 / 3;                   
+        grid-row: 1 / 2;                      
+        display: flex;      
+        justify-content: center;             
+        width: 250px;
+        gap: 15px;                           
+    }
 
-/*  FOR IPADS AND SMALL LAPTOPS - Is this unecessary?? */
-@media (min-width: 768px) and (max-width: 1023px) {
+    .copyrights {
+        grid-column: 3 / 4;                   
+        grid-row: 1 / 2;                      
+        font-size: 14px;
+    }
 
-  .policy-page header {
-    background: none;
-  }
+    /* Andra raden - nedre delen av footern */
+    .webdesign {
+        grid-column: 1 / 2;                  
+        grid-row: 2 / 3;                      
+        font-size: 12px;
+        opacity: 0.8;
+    }
 
-  .policy-page nav {
-    background: none;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-  }
-
-  header {
-    background: black;
-  }
-
-  .navbar {
-    background: black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .navbar ul {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    list-style: none;
-    padding: 0;
-    gap: 10px;
-  }
-
-  .navbar a {
-    text-decoration: none;
-    text-transform: uppercase;
-    font-weight: bold;
-    padding: 10px;
-    font-size: 16px;
-    color: white;
-  }
-
-  /* HERO SECTION */
-  .hero {
-    background: black;
-    position: relative;
-    width: 100%;
-    height: 50vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    overflow: hidden;
-    z-index: -2;
-  }
-
-  /* HERO VIDEO */
-  .hero-video {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 769px;
-    height: 412px;
-    object-fit: cover;
-    /* Ser till att videon täcker hela bakgrunden */
-    z-index: -1;
-  }
-
-  .hero-text {
-    position: absolute;
-    bottom: 18px;
-    right: 18px;
-    font-size: 12px;
-    padding: 10px 15px;
-    border-radius: 5px;
-  }
-
-  /* HTML FORM STYLING */
-  .form-container {
-    flex: 1;
-    width: 100%;
-    max-width: 600px;
-    margin: 20px auto;
-    padding: 20px;
-    background: rgba(0, 0, 0, 0.607);
-    color: white;
-    border-radius: 10px;
-    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
-  }
-
-  /* FORM LAYOUT */
-  form {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-
-  /* LABEL-STYLING */
-  label {
-    margin-top: 10px;
-    font-weight: bold;
-  }
-
-
-  /* INPUT & TEXTAREA STYLING */
-  input[type="text"],
-  input[type="email"],
-  textarea {
-    width: 90%;
-    padding: 10px;
-    margin-top: 5px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-  }
-
-  /* FOKUS EFFECTS ON INPUT */
-  input:focus,
-  textarea:focus {
-    outline: none;
-    border-color: crimson;
-    box-shadow: 0 0 5px crimson;
-  }
-
-
-  /* RADIOBUTTONS */
-  fieldset {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-    border: none;
-    margin-top: 20px;
-    padding: 10px;
-  }
-
-  fieldset label {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-
-  fieldset label:nth-child(4) {
-    grid-column: 1 / span 2;
-    display: flex;
-    width: 100%;
-    margin-bottom: 15px;
-  }
-
-
-  /* LEGEND STYLING */
-  legend {
-    text-align: left;
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
-
-  /* RADIOBUTTON STYLING */
-  fieldset input[type="radio"] {
-    margin: 0;
-    width: 16px;
-    height: 16px;
-    accent-color: crimson;
-  }
-
-  input[type="radio"]:focus {
-    outline: none;
-    box-shadow: none;
-  }
-
-  .additional-info textarea {
-    width: 90%;
-    min-height: 100px;
-    resize: vertical;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-    box-sizing: border-box;
-  }
-
-  /* SUBMIT BUTTON STYLING */
-  button {
-    margin: 20px auto;
-    width: 50%;
-    margin-top: 20px;
-    padding: 12px;
-    background: rgb(58, 3, 14);
-    color: white;
-    border: none;
-    cursor: pointer;
-    font-size: 18px;
-    border-radius: 5px;
-    transition: 0.3s ease;
-  }
-
-  /* HOVER-EFFEKT PÅ KNAPP */
-  button:hover {
-    background: rgb(41, 4, 4);
-  }
-
-  .main {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    /* Två kolumner */
-    gap: 20px;
-    max-width: 90%;
-    margin: auto;
-  }
-
-  .band-text {
-    margin-top: 30px;
-  }
-
-  .policy-page h1 {
-    text-align: left;
-  }
-
-  .policy-page main {
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
-    gap: 20px;
-    width: 90%;
-    margin: auto;
-    margin-bottom: 15px;
-  }
-
-  .terms-of-use {
-    display: flex;
-    justify-content: center;
-    align-items: left;
-    width: 35%;
-  }
-
-  .privacy-policy {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: left;
-    width: 35%;
-  }
-
-  footer {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: auto auto auto;
-    align-items: center;
-    justify-items: center;
-    gap: 10px;
-    text-align: center;
-    background: rgba(16, 16, 16, 0.632);
-  }
-
-  .contact {
-    grid-column: 1 / 2;
-    grid-row: 1 / 4;
-  }
-
-  .icons {
-    grid-column: 2 / 3;
-    grid-row: 1 / 4;
-  }
-
-  .copyrights {
-    grid-column: 3 / 4;
-    grid-row: 1 / 4;
-  }
-
-  .policy {
-    grid-column: 3 / 4;
-    grid-row: 3 / 4;
-  }
-
-  .webdesign {
-    grid-column: 1 / 2;
-    grid-row: 3 / 4;
-    text-align: center;
-  }
+    .policy {
+        grid-column: 3 / 4;                   
+        grid-row: 2 / 3;                     
+        font-size: 12px;
+        opacity: 0.8;
+    }
 }
 
 /* LAPTOPS / LARGER SCREENS (1024px) */
 @media (min-width: 1024px) {
-  body {
-    background-image: url(assets/background3.jpg);
-    background-color: #000000;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-  }
-
-  .policy-page logo {
-    position: absolute;
-    width: 100%;
-    height: 100vh;
-    background-image: url("assets/logo1.png");
-    background-size: contain;
-    background-position: top;
-    background-repeat: no-repeat;
-    opacity: 0.9;
-    z-index: -1;
-  }
 
   .logo {
     display: none;
   }
 
-  .booking-page logo {
+  .policy-page .logo {
+    display: block !important; /* Se till att den syns */
     position: absolute;
-    width: 500px;
-    height: 500px;
-    background-image: url("assets/logo1.png");
+    width: 100vw;
+    height: 100vh;
+    background-image: url("../assets/logo1.png"); 
     background-size: contain;
-    background-position: left;
+    background-position: center;
     background-repeat: no-repeat;
-    opacity: 0.9;
-    z-index: -2;
+    opacity: 0.3;
+    z-index: 10;
+    pointer-events: none; 
   }
+}
 
   header {
     background: black;
@@ -1001,15 +810,16 @@ a:hover {
 
   /* NAVIGATION MENU */
   .navbar {
-    background: black;
     display: flex;
     justify-content: flex-end;
+    flex-direction: row;
+    background: black;
     padding: 0px;
     margin-top: 10px;
   }
 
   /* NAVIGATION MENU BOOKING-PAGE */
-  .booking-page nav {
+  .booking-page header nav.navbar {
     background: none;
     display: flex;
     justify-content: flex-end;
@@ -1018,21 +828,8 @@ a:hover {
   }
 
   .navbar ul {
-    display: flex;
     flex-direction: row;
-    align-items: flex-end;
-    list-style: none;
-    padding: 0;
-    gap: 10px;
-  }
-
-  .navbar a {
-    text-decoration: none;
-    text-transform: uppercase;
-    font-weight: bold;
-    padding: 10px;
-    font-size: 16px;
-    color: white;
+   
   }
 
   /* HERO SECTION */
@@ -1040,7 +837,7 @@ a:hover {
     position: relative;
     width: 100%;
     height: 100vh;
-    display: flex;
+    display: block;
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -1049,6 +846,7 @@ a:hover {
 
   /* HERO VIDEO */
   .hero-video {
+    display: block;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -1056,8 +854,15 @@ a:hover {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    /* Ser till att videon täcker hela bakgrunden */
     z-index: -1;
+  }
+
+  .hero-text {
+    background: rgba(0, 0, 0, 0.269);
+    font-size: 18px; 
+    bottom: 20px; 
+    right: 20px;
+    color: white;
   }
 
   .cta-button {
@@ -1079,7 +884,6 @@ a:hover {
   .cta-button:hover {
     background: darkred;
     animation: none;
-    /* Stoppa animeringen vid hover */
     transform: scale(1.1);
   }
 
@@ -1102,11 +906,11 @@ a:hover {
 
 
   /*  MAIN CONTENT */
-  .main {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    width: 100%;
+  .band-text,
+  .band-photo,
+  .latest-news,
+  .upcoming-gigs {
+    display: none;
   }
 
   .booking-page html,
@@ -1124,28 +928,7 @@ a:hover {
 
   /* HTML FORM STYLING */
   .form-container {
-    flex: 1;
-    width: 100%;
     max-width: 650px;
-    margin: 20px auto;
-    padding: 20px;
-    background: rgba(0, 0, 0, 0.607);
-    color: white;
-    border-radius: 10px;
-    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
-  }
-
-  /* FORM LAYOUT */
-  form {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-
-  /* LABEL-STYLING */
-  label {
-    margin-top: 10px;
-    font-weight: bold;
   }
 
 
@@ -1154,58 +937,6 @@ a:hover {
   input[type="email"],
   textarea {
     width: 95%;
-    padding: 10px;
-    margin-top: 5px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-  }
-
-  /* FOKUS EFFECTS ON INPUT */
-  input:focus,
-  textarea:focus {
-    outline: none;
-    border-color: crimson;
-    box-shadow: 0 0 5px crimson;
-  }
-
-
-  /* RADIOBUTTONS */
-  fieldset {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-    border: none;
-    margin-top: 20px;
-    padding: 10px;
-  }
-
-  fieldset label {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-
-  fieldset label:nth-child(4) {
-    grid-column: 1 / span 2;
-    display: flex;
-    width: 100%;
-    margin-bottom: 15px;
-  }
-
-
-  /* LEGEND STYLING */
-  legend {
-    text-align: left;
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
-
-  /* RADIOBUTTON STYLING */
-  fieldset input[type="radio"] {
-    margin: 0;
-    width: 16px;
-    height: 16px;
-    accent-color: crimson;
   }
 
   input[type="radio"]:focus {
@@ -1213,34 +944,16 @@ a:hover {
     box-shadow: none;
   }
 
-  .additional-info textarea {
-    width: 100%;
-    min-height: 100px;
-    resize: vertical;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-    box-sizing: border-box;
+  #message {
+    width: 100%; /* Justera bredden */
   }
+  
 
 
   /* SUBMIT BUTTON STYLING */
   button {
-    margin-top: 20px;
     margin: 20px auto;
     width: 50%;
-    padding: 12px;
-    background: rgb(58, 3, 14);
-    color: white;
-    border: none;
-    cursor: pointer;
-    font-size: 18px;
-    border-radius: 5px;
-    transition: 0.3s ease;
-  }
-
-  /* HOVER-EFFEKT PÅ KNAPP */
-  button:hover {
-    background: rgb(41, 4, 4);
   }
 
   .policy-page nav {
@@ -1251,56 +964,21 @@ a:hover {
     background: none;
   }
 
-  /* BOXES */
-  .band-text {
-    display: none;
-  }
-
-  .band-photo {
-    display: none;
-  }
-
-  .band-photo img {
-    display: none;
-  }
-
-  .latest-news {
-    display: none;
-  }
-
-  .upcoming-gigs {
-    display: none;
-  }
-
   /* FOOTER */
   footer {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: auto auto auto;
-    align-items: center;
     justify-items: center;
-    gap: 10px;
-    text-align: center;
     background: black;
   }
 
-  .policy-page footer {
-    background: rgba(0, 0, 0, 0.66);
-  }
-
-  .booking-page footer {
+  .policy-page footer, .booking-page footer {
     background: rgba(0, 0, 0, 0.66);
   }
 
   .booking-page footer {
     position: absolute;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: auto auto auto;
-    align-items: center;
-    justify-items: center;
-    gap: 10px;
-    text-align: center;
   }
 
   .contact {
