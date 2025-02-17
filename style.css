@@ -357,6 +357,25 @@ main {
   margin: 10px;
   background: rgba(0, 0, 0, 0.386);
   order: 4;
+  padding: 15px;
+  color: white;
+}
+
+.latest-news p {
+  font-size: 16px;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.read-more {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 15px;
+  background: darkred;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background 0.3s;
 }
 
 .band-text {
@@ -372,18 +391,6 @@ main {
   object-fit: cover;
   background: none;
 
-}
-
-.latest-news {
-  color: white;
-  flex-wrap: wrap;
-  text-align: center;
-  line-height: 1.6;
-}
-
-.latest-news p {
-  font-size: 16px;
-  max-width: 90%;
 }
 
 .upcoming-gigs {
