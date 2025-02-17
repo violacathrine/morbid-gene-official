@@ -36,7 +36,7 @@ body {
 }
 
 .booking-page .logo {
-display: none;
+  display: none;
 }
 
 
@@ -49,16 +49,16 @@ header {
 
 /* HERO SECTION STYLING */
 .hero {
-display: none;
+  display: none;
 }
 
 /* HERO VIDEO */
 .hero-video {
-display: none;
+  display: none;
 }
 
 .hero-text {
-display: none;
+  display: none;
 }
 
 .cta-button {
@@ -66,8 +66,8 @@ display: none;
 }
 
 .cta-button:hover {
-background: darkred;
-transform: scale(1.1);
+  background: darkred;
+  transform: scale(1.1);
 }
 
 h3 {
@@ -79,7 +79,7 @@ h3 {
   text-transform: uppercase;
 }
 
-  /* NAVIGATION MENU */
+/* NAVIGATION MENU */
 .navbar {
   display: flex;
   justify-content: flex-end;
@@ -228,12 +228,12 @@ textarea {
 }
 
 .checkbox-container a {
-  color: white; 
+  color: white;
   transition: color 0.3s ease;
 }
 
 .checkbox-container a:hover {
-  color: white; 
+  color: white;
 }
 
 /* SUBMIT BUTTON STYLING */
@@ -294,6 +294,39 @@ main {
   padding: 20px;
   height: 100%;
 }
+
+.news-page h1 {
+  text-align: center;
+}
+
+.news-page main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  color: white;
+  padding-top: 100px;
+  padding-bottom: 20px;
+}
+
+.articles-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  max-width: 90%;
+}
+
+.article {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  width: 100%;
+  min-width: 250px;
+  text-align: center;
+}
+
 
 /* BOXES */
 .band-photo,
@@ -384,7 +417,6 @@ footer {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding: 20px 0;
   width: 100%;
   gap: 10px;
 }
@@ -408,7 +440,8 @@ footer {
   order: 3;
 }
 
-.policy, .webdesign {
+.policy,
+.webdesign {
   font-size: 12px;
   margin-top: 10px;
   opacity: 0.8;
@@ -515,8 +548,35 @@ a:hover {
     width: 35%;
   }
 
-   /* HERO SECTION */
-   .hero {
+  .news-page header {
+    background: none;
+  }
+
+  .news-page nav {
+    background: none;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .news-page .logo {
+    display: block;
+  }
+
+  .news-page main {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    padding-bottom: 100px;
+  }
+
+  .article {
+    flex: 1 1 calc(50% - 20%);
+    max-width: calc(50% - 20%);
+  }
+
+  /* Hero section */
+  .hero {
     background: black;
     position: relative;
     width: 100%;
@@ -536,10 +596,9 @@ a:hover {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 769px;
-    height: 412px;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
-    /* Ser till att videon täcker hela bakgrunden */
     z-index: -1;
   }
 
@@ -551,6 +610,8 @@ a:hover {
     font-size: 12px;
     padding: 10px 15px;
     border-radius: 5px;
+    color: white;
+    background: rgba(0, 0, 0, 0.269);
   }
 
 
@@ -702,7 +763,7 @@ a:hover {
     order: 1;
   }
 
-  .policy-page logo {
+  .policy-page .logo {
     position: absolute;
     width: 100%;
     height: 100vh;
@@ -739,60 +800,53 @@ a:hover {
     width: 45%;
   }
 
-  @media (min-width: 768px) {
+  footer {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto auto;
+    gap: 20px;
+    align-items: center;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.664);
+    padding: 20px 0;
+  }
 
-    .booking-page .logo {
-      display: none;
-    }
+  /* Första raden - övre delen av footern */
+  .contact {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    font-size: 16px;
+    font-weight: bold;
+  }
 
-    footer {
-        display: grid;                        
-        grid-template-columns: repeat(3, 1fr); 
-        grid-template-rows: auto auto;         
-        gap: 20px;                            
-        align-items: center;                  
-        text-align: center;                   
-        background: rgba(0, 0, 0, 0.664);     
-        padding: 20px 0;                      
-    }
+  .icons {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    display: flex;
+    justify-content: center;
+    width: 250px;
+    gap: 15px;
+  }
 
-    /* Första raden - övre delen av footern */
-    .contact {
-        grid-column: 1 / 2;                   
-        grid-row: 1 / 2;                      
-        font-size: 16px;
-        font-weight: bold;
-    }
+  .copyrights {
+    grid-column: 3 / 4;
+    grid-row: 1 / 2;
+    font-size: 14px;
+  }
 
-    .icons {
-        grid-column: 2 / 3;                   
-        grid-row: 1 / 2;                      
-        display: flex;      
-        justify-content: center;             
-        width: 250px;
-        gap: 15px;                           
-    }
+  .webdesign {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+    font-size: 12px;
+    opacity: 0.8;
+  }
 
-    .copyrights {
-        grid-column: 3 / 4;                   
-        grid-row: 1 / 2;                      
-        font-size: 14px;
-    }
-
-    /* Andra raden - nedre delen av footern */
-    .webdesign {
-        grid-column: 1 / 2;                  
-        grid-row: 2 / 3;                      
-        font-size: 12px;
-        opacity: 0.8;
-    }
-
-    .policy {
-        grid-column: 3 / 4;                   
-        grid-row: 2 / 3;                     
-        font-size: 12px;
-        opacity: 0.8;
-    }
+  .policy {
+    grid-column: 3 / 4;
+    grid-row: 2 / 3;
+    font-size: 12px;
+    opacity: 0.8;
+  }
 }
 
 /* LAPTOPS / LARGER SCREENS (1024px) */
@@ -803,15 +857,14 @@ a:hover {
   }
 
   .policy-page .logo {
-    background-image: url("../assets/logo1.png"); 
+    background-image: url("../assets/logo1.png");
     display: block;
     width: 250px;
     height: 250px;
     opacity: 0.3;
     z-index: 10;
-    pointer-events: none; 
+    pointer-events: none;
   }
-}
 
   header {
     background: black;
@@ -842,7 +895,7 @@ a:hover {
 
   .navbar ul {
     flex-direction: row;
-   
+
   }
 
   /* HERO SECTION */
@@ -872,8 +925,8 @@ a:hover {
 
   .hero-text {
     background: rgba(0, 0, 0, 0.269);
-    font-size: 18px; 
-    bottom: 20px; 
+    font-size: 18px;
+    bottom: 20px;
     right: 20px;
     color: white;
   }
@@ -958,9 +1011,8 @@ a:hover {
   }
 
   #message {
-    width: 100%; /* Justera bredden */
+    width: 100%;
   }
-  
 
 
   /* SUBMIT BUTTON STYLING */
@@ -986,7 +1038,8 @@ a:hover {
     background: black;
   }
 
-  .policy-page footer, .booking-page footer {
+  .policy-page footer,
+  .booking-page footer {
     background: rgba(0, 0, 0, 0.66);
   }
 
