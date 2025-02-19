@@ -4,16 +4,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="css/style.css">
   <title>Morbid Gene - Official website</title>
 </head>
 
 <body class="booking-page">
   <div class="logo">
   </div>
-  <header>
 
-    <nav class="navbar">
+  <header>
+    <nav class="navbar" id="navbar">
+      <div class="menu-toggle" id="menu-toggle">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+      </div>
+
+      <!--NAVIGATION LINKS-->
       <ul class="nav-links">
         <li>
           <a href="index.html">Home</a>
@@ -53,9 +60,10 @@
 
         <label class="checkbox-container">
           <input type="checkbox" id="termsCheckbox" required>
+          I accept the
+          <a href="policy-page.html" target="_blank">Terms of Use</a>, and
           I consent to the processing of my personal data in accordance with the
-          <a href="policy-page.html" target="_blank">Privacy Policy</a>, and I accept the
-          <a href="policy-page.html" target="_blank">Terms of Use</a>.
+          <a href="policy-page.html" target="_blank">Privacy Policy</a>.
         </label>
 
         <button type="submit">Submit request</button>
@@ -139,6 +147,8 @@
       <a href="https://github.com/violacathrine">Webdesign by Cathrine Olsson</a>
     </div>
   </footer>
+  <script src="script.js"></script>
+
 </body>
 
 </html>
