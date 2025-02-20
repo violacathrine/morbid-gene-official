@@ -97,7 +97,7 @@ header {
   align-items: flex-end;
   list-style: none;
   padding: 0;
-  gap: 20px;
+  gap: 25px;
 }
 
 .navbar a {
@@ -105,7 +105,7 @@ header {
   text-transform: uppercase;
   font-weight: bold;
   padding: 10px;
-  font-size: 16px;
+  font-size: 25px;
   color: white;
 }
 
