@@ -1,4 +1,5 @@
 body {
+  height: 100%;
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
@@ -47,7 +48,7 @@ header {
 
 /* NAVIGATION MENU */
 
-/* HAMBURGER MENU ICON */
+/* HAMBURGER MENU*/
 .menu-toggle {
   display: flex;
   flex-direction: column;
@@ -62,6 +63,7 @@ header {
   background: transparent;
 }
 
+/* HAMBURGER MENU ICON */
 .bar {
   width: 100%;
   height: 5px;
@@ -146,9 +148,9 @@ main {
   width: 100%;
   margin: auto;
   color: white;
-  padding-top: 80%;
   padding-bottom: 20px;
   margin: 0px;
+  padding-top: 80%;
 }
 
 /* MAIN CONTENT BOXES */
@@ -235,7 +237,6 @@ main {
 
 /* HTML FORM STYLING */
 .form-container {
-  flex: 1;
   width: 90%;
   padding: 0px;
   background: rgba(0, 0, 0, 0.607);
@@ -249,7 +250,6 @@ main {
 form {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   width: 100%;
   align-items: flex-start;
   padding: 20px;
@@ -352,10 +352,11 @@ input[type="date"]:focus {
   width: 100%;
 }
 
-.additional-info textarea {
-  resize: vertical;
+#message {
+  resize: none;
   word-wrap: break-word;
   overflow-wrap: break-word;
+  max-height: 100px;
 }
 
 textarea {
@@ -787,10 +788,6 @@ a:hover {
   .policy-page footer,
   .booking-page footer {
     background: rgba(0, 0, 0, 0.66);
-  }
-
-  .booking-page footer {
-    position: absolute;
   }
 
   .contact {
