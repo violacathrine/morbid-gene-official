@@ -219,7 +219,9 @@ main {
   margin-bottom: 10px;
   padding: 10px;
   font-weight: bold;
-  animation: blink-color 1s infinite alternate;
+  cursor: pointer;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
+  animation: blink-color 0.8s infinite alternate;
 }
 
 @keyframes blink-color {
