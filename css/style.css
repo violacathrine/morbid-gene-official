@@ -144,11 +144,11 @@ main {
   align-items: center;
   gap: 20px;
   width: 100%;
-  max-width: 90%;
   margin: auto;
   color: white;
   padding-top: 80%;
   padding-bottom: 20px;
+  margin: 0px;
 }
 
 /* MAIN CONTENT BOXES */
@@ -167,7 +167,7 @@ main {
   order: 2;
   font-size: 18px;
   text-align: justify;
-  margin-top: 10px;
+  margin: 10px;
 }
 
 .band-photo {
@@ -237,12 +237,12 @@ main {
 .form-container {
   flex: 1;
   width: 90%;
-  margin: 20px auto;
-  padding: 20px;
+  padding: 0px;
   background: rgba(0, 0, 0, 0.607);
   color: white;
   border-radius: 10px;
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+  margin: 10px;
 }
 
 /* FORM LAYOUT */
@@ -250,6 +250,10 @@ form {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  width: 100%;
+  align-items: flex-start;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
 /* LABEL STYLING */
@@ -263,11 +267,13 @@ label {
 input[type="text"],
 input[type="email"],
 textarea {
-  width: 90%;
+  width: 100%;
+  max-width: 100%;
   padding: 10px;
   margin-top: 5px;
   border-radius: 5px;
   border: 1px solid #ccc;
+  box-sizing: border-box;
 }
 
 /* FOKUS EFFECTS ON INPUT */
@@ -279,13 +285,16 @@ textarea:focus {
 }
 
 /* RADIOBUTTONS */
+
 fieldset {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
+  gap: 0px;
   border: none;
   margin-top: 20px;
-  padding: 10px;
+  margin-bottom: 20px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 fieldset label {
@@ -321,13 +330,31 @@ input[type="radio"]:focus {
   box-shadow: none;
 }
 
-.additional-info textarea {
+input[type="date"] {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  padding: 10px;
+  border: 2px solid;
+  border-radius: 5px;
+  background-color: #f8f8f8;
+  color: #333;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+input[type="date"]:focus {
+  outline: none;
+  border: none;
+}
+
+.additional-info {
   width: 100%;
-  min-height: 100px;
+}
+
+.additional-info textarea {
   resize: vertical;
   word-wrap: break-word;
   overflow-wrap: break-word;
-  box-sizing: border-box;
 }
 
 textarea {
@@ -361,6 +388,10 @@ textarea {
 
 /* SUBMIT BUTTON STYLING */
 button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
   margin-top: 20px;
   padding: 12px;
   background: rgb(58, 3, 14);
@@ -604,10 +635,6 @@ a:hover {
   /* HTML FORM SECTION */
   .form-container {
     max-width: 600px;
-  }
-
-  .additional-info textarea {
-    width: 90%;
   }
 
   button {
