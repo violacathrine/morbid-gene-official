@@ -323,6 +323,7 @@ fieldset input[type="radio"] {
   width: 16px;
   height: 16px;
   accent-color: crimson;
+  cursor: pointer;
 }
 
 input[type="radio"]:focus {
@@ -379,6 +380,7 @@ textarea {
 
 .checkbox-container a {
   color: white;
+  font-weight: bold;
   transition: color 0.3s ease;
 }
 
