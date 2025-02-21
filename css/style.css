@@ -47,8 +47,6 @@ header {
 }
 
 /* NAVIGATION MENU */
-
-/* HAMBURGER MENU*/
 .menu-toggle {
   display: flex;
   flex-direction: column;
@@ -165,15 +163,34 @@ main {
   margin: 10px;
 }
 
+.upcoming-gigs {
+  flex-wrap: wrap;
+  text-align: center;
+  line-height: 1.6;
+  width: 75%;
+  margin-top: 25px;
+  margin-bottom: 10px;
+  padding: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
+  animation: blink-color 0.8s infinite alternate;
+}
+
+@keyframes blink-color {
+  0% {
+    background: rgba(255, 0, 0, 0.231);
+  }
+
+  100% {
+    background: rgba(0, 0, 0, 0);
+  }
+}
+
 .band-text {
-  order: 2;
   font-size: 18px;
   text-align: justify;
   margin: 10px;
-}
-
-.band-photo {
-  order: 3;
 }
 
 .band-photo img {
@@ -185,7 +202,6 @@ main {
 .latest-news {
   margin: 10px;
   background: rgba(0, 0, 0, 0.386);
-  order: 4;
   padding: 15px;
 }
 
@@ -210,32 +226,7 @@ main {
   transform: scale(1.05);
 }
 
-.upcoming-gigs {
-  order: 1;
-  flex-wrap: wrap;
-  text-align: center;
-  line-height: 1.6;
-  width: 75%;
-  margin-top: 25px;
-  margin-bottom: 10px;
-  padding: 10px;
-  font-weight: bold;
-  cursor: pointer;
-  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
-  animation: blink-color 0.8s infinite alternate;
-}
-
-@keyframes blink-color {
-  0% {
-    background: rgba(255, 0, 0, 0.231);
-  }
-
-  100% {
-    background: rgba(0, 0, 0, 0);
-  }
-}
-
-/* HTML FORM STYLING */
+/* HTML FORM STYLING ON BOOKING-PAGE*/
 .form-container {
   width: 90%;
   padding: 0px;
@@ -507,7 +498,6 @@ a:hover {
 @media (min-width: 768px) {
 
   /* LOGO, HEADER AND NAVIGATION */
-
   .home-page .logo {
     display: none;
   }
@@ -522,22 +512,14 @@ a:hover {
     transform: none;
   }
 
-
+  /* HEADER */
   header {
     background: black;
   }
 
-  /* HEADER */
   .booking-page header,
   .policy-page header,
   .news-page header {
-    background: none;
-  }
-
-  /* NAVBAR */
-  .booking-page .navbar,
-  .policy-page .navbar,
-  .news-page .navbar {
     background: none;
   }
 
@@ -584,6 +566,28 @@ a:hover {
     background: rgba(0, 0, 0, 0.269);
   }
 
+  /* MAIN CONTENT */
+  main {
+    flex-direction: row;
+    padding-top: 0;
+  }
+
+  .band-text {
+    margin-top: 30px;
+    width: 50%;
+    line-height: 1.5;
+  }
+
+  /* HTML FORM SECTION BOOKING PAGE */
+  .form-container {
+    max-width: 600px;
+  }
+
+  button {
+    width: 50%;
+    margin: 20px auto;
+  }
+
   /* POLICY PAGE */
   .policy-page h1 {
     text-align: left;
@@ -595,7 +599,7 @@ a:hover {
     flex-direction: row;
     align-items: stretch;
     gap: 20px;
-    width: 90%;
+    width: 100%;
     padding-top: 120px;
     padding-bottom: 20px;
   }
@@ -610,7 +614,6 @@ a:hover {
   }
 
   /* NEWS PAGE */
-
   .news-page main {
     width: 100%;
     height: auto;
@@ -623,27 +626,6 @@ a:hover {
   .article {
     flex: 1 1 calc(50% - 20%);
     max-width: calc(50% - 20%);
-  }
-
-  /* MAIN CONTENT */
-
-  main {
-    flex-direction: row;
-    padding-top: 0;
-  }
-
-  .band-text {
-    margin-top: 30px;
-  }
-
-  /* HTML FORM SECTION */
-  .form-container {
-    max-width: 600px;
-  }
-
-  button {
-    width: 50%;
-    margin: 20px auto;
   }
 
   /* FOOTER */
@@ -700,7 +682,6 @@ a:hover {
 @media (min-width: 1024px) {
 
   /* NAVIGATION & HEADER */
-
   .menu-toggle {
     display: none;
   }
@@ -713,6 +694,13 @@ a:hover {
     display: flex;
     justify-content: flex-end;
     padding: 0px;
+  }
+
+  /* NAVBAR OTHER PAGES*/
+  .booking-page .navbar,
+  .policy-page .navbar,
+  .news-page .navbar {
+    background: none;
   }
 
   .navbar ul {
