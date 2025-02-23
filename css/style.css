@@ -275,12 +275,9 @@ textarea:focus {
 }
 
 /* RADIOBUTTONS */
-
 fieldset {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 0px;
   border: none;
+  gap: 10px;
   margin-top: 20px;
   margin-bottom: 20px;
   box-sizing: border-box;
@@ -293,9 +290,8 @@ fieldset label {
 }
 
 fieldset label:nth-child(4) {
-  grid-column: 1 / span 2;
+  grid-column: 1 / span 4;
   display: flex;
-  width: 100%;
   margin-bottom: 15px;
 }
 
