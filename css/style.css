@@ -9,6 +9,7 @@ body {
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-color: black;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
 }
 
 .logo {
@@ -67,7 +68,7 @@ header {
   height: 5px;
   background-color: rgb(255, 255, 255);
   border-radius: 5px;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
 .navbar {
@@ -81,7 +82,7 @@ header {
   padding: 70px 10px 0 0;
   width: 50%;
   height: 100vh;
-  transition: right 0.3s ease-in-out;
+  transition: right 0.2s ease-in-out;
   z-index: 99;
 }
 
