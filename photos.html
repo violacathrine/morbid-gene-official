@@ -25,8 +25,7 @@
         <li><a href="index.html">Home</a></li>
         <li><a href="news.html">News</a></li>
         <li><a href="">Gigs</a></li>
-        <li><a href="https://open.spotify.com/artist/
-          5AfmmWHx8TRE8mMU2uqhQC?si=lQoSQ9wzRl-hVkXDxNiIBw" target=" _blank">Music</a>
+        <li><a href="https://open.spotify.com/artist/5AfmmWHx8TRE8mMU2uqhQC" target=" _blank">Music</a>
         </li>
         <li><a href="https://morbid-gene.myspreadshop.se/" target="_blank">Merch</a></li>
         <li><a href="booking-page.html">Booking</a></li>
@@ -36,40 +35,45 @@
   </header>
 
   <main>
-    <!-- Spelning 1 -->
-    <div class="card" onclick="toggleContent('content1')" data-photographer="Photos © Per Lenner">
-      <h2>Live at Fredagsmangel Jakobsberg 15.11.2024</h2>
-      <p>Klicka för att visa mer</p>
-      <div class="hidden-content" id="content1">
-        <img src="assets/images/per-lenner/4.JPG" alt="Pavel" onclick="openLightbox(this)">
-        <img src=" assets/images/per-lenner/6.JPG" alt="" onclick="openLightbox(this)">
-        <img src=" assets/images/per-lenner/1.JPG" alt="Kråkan" onclick="openLightbox(this)">
-        <img src=" assets/images/per-lenner/2.JPG" alt="Kråkan" onclick="openLightbox(this)">
-        <img src=" assets/images/per-lenner/5.JPG" alt="Kråkan" onclick="openLightbox(this)">
-      </div>
-    </div>
+    <div class="photo-gallery">
+      <!-- live at fredagsmangel -->
+      <div class="card" id="card1">
+        <div class="card-header" onclick="toggleCard('card1')">
+          <img src="assets/images/per-lenner/4.JPG" alt="Preview 1">
+          <h2>Fredagsmangel Jakobsberg 15.11.2024</h2>
+        </div>
 
-    <!-- Spelning 2 -->
-    <div class=" card" onclick="toggleContent('content2')" data-photographer="Photos © Christoffer Wiklundh">
-      <h2>Live at O'learys Vällingby 26.10.2024</h2>
-      <p>Klicka för att visa mer</p>
-      <div class="hidden-content" id="content2">
-        <img src="assets/images/christoffer-wiklundh/bild1.jpg" alt="Göteborg Bild 1" onclick="openLightbox(this)">
-        <img src="assets/images/christoffer-wiklundh/bild2.jpg" alt="Göteborg Bild 2" onclick="openLightbox(this)">
-        <img src=" assets/images/christoffer-wiklundh/bild3.jpg" alt="Göteborg Bild 2" onclick="openLightbox(this)">
-        <img src=" assets/images/christoffer-wiklundh/bild4.jpg" alt="Göteborg Bild 2" onclick="openLightbox(this)">
-        <img src=" assets/images/christoffer-wiklundh/bild5.jpg" alt="Göteborg Bild 2" onclick="openLightbox(this)">
-      </div>
-    </div>
+        <!-- Innehållet som göms/tänds -->
+        <div class="card-content hidden">
+          <p>
+            Thanks everyone for coming to our gig last night at Fredagsmangel in Jakobsberg!
+            We had an absolute blast performing for you, and now during the winter and Christmas holidays
+            we're shifting our focus to recording new material in the studio. Our plan is to hopefully release
+            some of the songs we've been playing for you, sometime in early spring 2025. Stay tuned!
+          </p>
 
-    <!-- Lightbox -->
-    <div id="lightbox" class="lightbox">
-      <span class="close" onclick="closeLightbox()">&times;</span>
-      <span class="prev" onclick="changeImage(-1)">&#10094;</span>
-      <img id="lightbox-img" src="" alt="Bild i stort format">
-      <span class="next" onclick="changeImage(1)">&#10095;</span>
-      <div id="lightbox-caption" class="lightbox-caption"></div>
+          <!-- Bilderna ligger också inuti kortet -->
+          <div class="image-grid">
+            <img src="assets/images/per-lenner/1.JPG" alt="Image 1" onclick="openLightbox(0, 'card1')">
+            <img src="assets/images/per-lenner/2.JPG" alt="Image 2" onclick="openLightbox(1, 'card1')">
+            <img src="assets/images/per-lenner/3.JPG" alt="Image 3" onclick="openLightbox(2, 'card1')">
+            <img src="assets/images/per-lenner/4.JPG" alt="Image 4" onclick="openLightbox(3, 'card1')">
+            <img src="assets/images/per-lenner/5.JPG" alt="Image 5" onclick="openLightbox(4, 'card1')">
+            <img src="assets/images/per-lenner/6.JPG" alt="Image 6" onclick="openLightbox(5, 'card1')">
+            <img src="assets/images/per-lenner/7.JPG" alt="Image 7" onclick="openLightbox(6, 'card1')">
+            <img src="assets/images/per-lenner/8.JPG" alt="Image 8" onclick="openLightbox(7, 'card1')">
+            <img src="assets/images/per-l
+    
+
     </div>
+<!-- -->
+        <div id=" lightbox" class="hidden">
+            <span class="close" id="lightbox-close">&times;</span>
+            <span class="prev" onclick="changeImage(-1)">&#10094;</span>
+            <img id="lightbox-img" src="" alt="Large view">
+            <span class="next" onclick="changeImage(1)">&#10095;</span>
+          </div>
+
 
   </main>
 

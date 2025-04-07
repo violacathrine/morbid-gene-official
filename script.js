@@ -1,73 +1,123 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // Hantera meny-toggle
-    const menuToggle = document.getElementById("menu-toggle");
-    const navbar = document.getElementById("navbar");
+  // Handle the menu-toggle
+  const menuToggle = document.getElementById("menu-toggle");
+  const navbar = document.getElementById("navbar");
 
-    if (menuToggle && navbar) {
-        menuToggle.addEventListener("click", function (event) {
-            navbar.classList.toggle("active");
-            menuToggle.classList.toggle("active");
-            event.stopPropagation();
-        });
+  if (menuToggle && navbar) {
+    menuToggle.addEventListener("click", function (event) {
+      navbar.classList.toggle("active");
+      menuToggle.classList.toggle("active");
+      event.stopPropagation();
+    });
 
-        document.addEventListener("click", function (event) {
-            if (!navbar.contains(event.target) && event.target !== menuToggle) {
-                navbar.classList.remove("active");
-                menuToggle.classList.remove("active");
-            }
-        });
+    document.addEventListener("click", function (event) {
+      if (!navbar.contains(event.target) && event.target !== menuToggle) {
+        navbar.classList.remove("active");
+        menuToggle.classList.remove("active");
+      }
+    });
 
-        document.querySelectorAll(".navbar a").forEach(link => {
-            link.addEventListener("click", function () {
-                navbar.classList.remove("active");
-                menuToggle.classList.remove("active");
-            });
-        });
+    document.querySelectorAll(".navbar a").forEach((link) => {
+      link.addEventListener("click", function () {
+        navbar.classList.remove("active");
+        menuToggle.classList.remove("active");
+      });
+    });
+  }
+
+  if (document.querySelector(".photo-gallery")) {
+    let currentImageIndex = 0;
+    let currentImages = [];
+
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightbox-img");
+    const closeBtn = document.querySelector("#lightbox .close");
+
+    if (lightbox) {
+      lightbox.classList.add("hidden");
     }
 
-    // Kontrollera att vi är på booking-page.html innan vi kör formulär-koden
-    if (document.getElementById("booking-form")) {
-        const form = document.getElementById("booking-form");
-        const popup = document.getElementById("popup-message");
+    window.toggleCard = function (id) {
+      const card = document.getElementById(id);
+      const content = card.querySelector(".card-content");
 
-        form.addEventListener("submit", function (event) {
-            event.preventDefault(); // Stoppa vanlig formulärsubmission
+      if (content) {
+        content.classList.toggle("hidden");
+      } else {
+        console.error(" Error: Could not find content inside card", id);
+      }
+    };
 
-            const formData = new FormData(form);
-            const formspreeURL = "https://formspree.io/f/xkgjwpqq"; // Din Formspree-ID
+    window.openLightbox = function (index, cardId) {
+      const card = document.getElementById(cardId);
+      if (!card) {
+        console.error(" Error: Could not find card with ID:", cardId);
+        return;
+      }
 
-            fetch(formspreeURL, {
-                method: "POST",
-                body: formData,
-                headers: {
-                    "Accept": "application/json"
-                }
-            })
-                .then(response => {
-                    if (response.ok) {
-                        popup.classList.remove("hidden"); // Visa popup
-                        form.reset(); // Rensa formuläret efter skickat meddelande
+      currentImages = Array.from(card.querySelectorAll(".image-grid img"));
+      if (currentImages.length === 0) {
+        console.error(" Error: No images found in card:", cardId);
+        return;
+      }
 
-                        // Stäng popupen automatiskt efter 3 sekunder
-                        setTimeout(() => {
-                            closePopup();
-                        }, 3000);
-                    } else {
-                        alert("Something went wrong. Please try again later.");
-                    }
-                })
-                .catch(error => {
-                    alert("A technical error occurred. Please try again.");
-                    console.error("Error:", error);
-                });
-        });
+      if (index < 0 || index >= currentImages.length) {
+        console.error(" Error: Invalid image index:", index);
+        return;
+      }
+
+      const selectedImage = currentImages[index];
+      if (!selectedImage || !selectedImage.src) {
+        console.error(" Error: Selected image not found.");
+        return;
+      }
+
+      lightboxImg.src = selectedImage.src;
+      lightbox.classList.remove("hidden");
+
+      currentImageIndex = index;
+    };
+
+    window.changeImage = function (direction) {
+      if (currentImages.length === 0) return;
+
+      currentImageIndex += direction;
+
+      if (currentImageIndex < 0) {
+        currentImageIndex = currentImages.length - 1;
+      } else if (currentImageIndex >= currentImages.length) {
+        currentImageIndex = 0;
+      }
+
+      lightboxImg.src = currentImages[currentImageIndex].src;
+    };
+
+    window.closeLightbox = function () {
+      if (lightbox) {
+        lightbox.classList.add("hidden");
+        lightboxImg.src = "";
+      }
+    };
+
+    if (closeBtn) {
+      closeBtn.addEventListener("click", function (event) {
+        event.stopPropagation();
+        closeLightbox();
+      });
     }
+
+    if (lightbox) {
+      lightbox.addEventListener("click", function (event) {
+        if (event.target === lightbox) {
+          closeLightbox();
+        }
+      });
+    }
+
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape") {
+        closeLightbox();
+      }
+    });
+  }
 });
-
-// Stäng popupen manuellt när användaren klickar på "OK"
-function closePopup() {
-    const popup = document.getElementById("popup-message");
-    if (popup) {
-        popup.classList.add("hidden");
-    }
-}
