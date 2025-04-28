@@ -1,0 +1,76 @@
+:root {
+  --bg: #000;
+  --text: #fff;
+  --accent: #e63946; /* djupröd */
+  --font-main: Arial, sans-serif;
+  --font-size-base: 1rem;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-main);
+  font-size: var(--font-size-base);
+  line-height: 1.6;
+}
+
+.wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+/* Typografi */
+h1,
+h2,
+h3 {
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+/* Navigation */
+nav {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1.5rem;
+  padding: 1rem 0;
+}
+
+nav a {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 0.95rem;
+}
+
+nav a:hover {
+  color: var(--accent);
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 2rem 0;
+  font-size: 0.9rem;
+  opacity: 0.7;
+}
+
+/* Responsivt exempel */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

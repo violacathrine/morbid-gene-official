@@ -485,7 +485,6 @@ button:hover {
 
 .image-grid img {
   width: 100px;
-  /* Justera storleken på bilderna */
   height: 100px;
   object-fit: cover;
   cursor: pointer;
