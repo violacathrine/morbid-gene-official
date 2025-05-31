@@ -1,6 +1,6 @@
 // src/components/HeroSection.jsx
-import styled from "styled-components";
-import backgroundImage from "../assets/images/band.jpg";
+import styled from 'styled-components'
+import backgroundImage from '../assets/images/band.jpg'
 
 const Hero = styled.section`
   min-height: 100dvh;
@@ -17,10 +17,10 @@ const Hero = styled.section`
   overflow: hidden;
 
   .hero-content {
-  background-color: rgba(0, 0, 0, 0.6); /* 🟤 halvgenomskinlig svart */
-  padding: 1.5rem 2rem;
-  max-width: 90%;
-}
+    background-color: rgba(0, 0, 0, 0.6); /* 🟤 halvgenomskinlig svart */
+    padding: 1.5rem 2rem;
+    max-width: 90%;
+  }
 
   /* Förhindrar att barninnehåll orsakar scroll */
   > div {
@@ -46,9 +46,9 @@ const Hero = styled.section`
   }
 
   @media (min-width: 768px) {
-.hero-content {
-  backdrop-filter: blur(4px); /* 🔮 snygg effekt (valfritt) */
-  }
+    .hero-content {
+      backdrop-filter: blur(4px); /* 🔮 snygg effekt (valfritt) */
+    }
 
     h1 {
       font-size: 4rem;
@@ -58,13 +58,13 @@ const Hero = styled.section`
       font-size: 1.5rem;
     }
   }
-`;
+`
 
 export const HeroSection = () => {
   return (
     <Hero id="hero">
       <div className="hero-content">
-        <h1>Morbid Gene</h1>
+        <h1>Morbid Gene Official</h1>
         <a
           href="https://open.spotify.com/album/0OnT6kBQPRmHazmvOiLxQe?si=_gBnA79hSHySmec_U1cdUg"
           target="_blank"
@@ -74,5 +74,5 @@ export const HeroSection = () => {
         </a>
       </div>
     </Hero>
-  );
-};
+  )
+}

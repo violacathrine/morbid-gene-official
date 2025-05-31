@@ -1,42 +1,43 @@
 // src/components/Navbar.jsx
-import { useState, useRef, useEffect } from "react";
-import styled from "styled-components";
-import logo from "../assets/logo.svg";
+import { Link, useLocation } from 'react-router-dom'
+import { useState, useRef, useEffect } from 'react'
+import styled from 'styled-components'
+import logo from '../assets/logo.svg'
 
 // --- Styled Components ---
 
 const NavWrapper = styled.nav`
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 10;
+  z-index: 9;
   color: #fff;
-  padding: 10px; /* Justerad padding för att ge lite mer utrymme, men box-sizing hanterar bredden */
-  flex-wrap: wrap; /* 🛡️ tillåter radbrytning vid platsbrist */
-
+  padding: 2rem 2rem; // Consistent padding for both pages
   display: flex;
-  justify-content: space-between;
+  justify-content: ${({ $isMedia }) =>
+    $isMedia ? 'flex-end' : 'space-between'};
   align-items: center;
+  background: transparent;
 
   @media (min-width: 768px) {
-    padding: 1rem 2rem; /* Mer padding på större skärmar */
+    padding: 2.5rem 3rem; // Consistent desktop padding
   }
-`;
+`
 
 const LogoContainer = styled.div`
-  flex: 0 0 auto;
   display: flex;
   align-items: center;
+  height: auto;
 
   img {
-    height: 120px;
-    width: auto;
-    max-width: 100%;
-    object-fit: contain;
-    display: block;
+    height: 100px;
+
+    @media (min-width: 768px) {
+      height: 100px;
+    }
   }
-`;
+`
 
 const DesktopNavLinks = styled.ul`
   display: none;
@@ -47,10 +48,8 @@ const DesktopNavLinks = styled.ul`
 
   @media (min-width: 768px) {
     display: flex;
-    justify-content: flex-end;
-    align-items: flex-start;    /* 🔼 Viktig: justerar vertikalt */
-    align-self: flex-start;     /* 🔼 Flyttar hela ul:en uppåt */
-    margin-top: 0.5rem;         /* Justera efter behov */
+    align-items: flex-start;
+    margin-top: 0.5rem;
   }
 
   li a {
@@ -60,37 +59,35 @@ const DesktopNavLinks = styled.ul`
     font-weight: bold;
     white-space: nowrap;
   }
-`;
+`
 
 const HamburgerIcon = styled.div`
   display: block;
   font-size: 2rem;
   cursor: pointer;
   color: #fff;
-
-  align-self: flex-start;       /* 💥 flyttar den till toppen av flexboxen */
-  margin-left: auto;            /* 💥 trycker den längst till höger */
-  margin-top: 0.5rem;           /* justera om du vill ännu högre upp */
+  margin-left: auto;
 
   @media (min-width: 768px) {
     display: none;
   }
-`;
+`
 
 const MobileMenu = styled.ul`
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  background: rgba(0, 0, 0, 0.9);
+  background: rgba(0, 0, 0, 0.95);
   list-style: none;
-  margin: 0;
   padding: 1.5rem 1rem;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  z-index: 9;
+  z-index: 10;
   flex-direction: column;
-  transition: transform 0.3s ease, opacity 0.3s ease;
-  transform: ${({ $isOpen }) => ($isOpen ? 'translateY(0)' : 'translateY(-100%)')};
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
+  transform: ${({ $isOpen }) =>
+    $isOpen ? 'translateY(0)' : 'translateY(-100%)'};
   opacity: ${({ $isOpen }) => ($isOpen ? 1 : 0)};
   pointer-events: ${({ $isOpen }) => ($isOpen ? 'auto' : 'none')};
   display: flex;
@@ -117,73 +114,102 @@ const MobileMenu = styled.ul`
   @media (min-width: 768px) {
     display: none;
   }
-`;
+`
 
-// --- Navbar Component ---
-
+// --- Component ---
 export const Navbar = () => {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const menuRef = useRef(null);
-  const iconRef = useRef(null);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const menuRef = useRef(null)
+  const iconRef = useRef(null)
+  const location = useLocation()
+  const isMediaPage = location.pathname === '/media'
 
-  const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
-  };
-
-  const closeMobileMenu = () => {
-    setIsMobileMenuOpen(false);
-  };
+  const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen)
+  const closeMobileMenu = () => setIsMobileMenuOpen(false)
 
   useEffect(() => {
-    if (!isMobileMenuOpen) return;
+    if (!isMobileMenuOpen) return
 
-    const handleClickOutside = (event) => {
+    const handleClickOutside = (e) => {
       if (
         menuRef.current &&
-        !menuRef.current.contains(event.target) &&
+        !menuRef.current.contains(e.target) &&
         iconRef.current &&
-        !iconRef.current.contains(event.target)
+        !iconRef.current.contains(e.target)
       ) {
-        setIsMobileMenuOpen(false);
+        setIsMobileMenuOpen(false)
       }
-    };
+    }
 
-    document.addEventListener("mousedown", handleClickOutside);
-    document.addEventListener("touchstart", handleClickOutside);
+    document.addEventListener('mousedown', handleClickOutside)
+    document.addEventListener('touchstart', handleClickOutside)
 
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-      document.removeEventListener("touchstart", handleClickOutside);
-    };
-  }, [isMobileMenuOpen]);
+      document.removeEventListener('mousedown', handleClickOutside)
+      document.removeEventListener('touchstart', handleClickOutside)
+    }
+  }, [isMobileMenuOpen])
 
   return (
     <>
-      <NavWrapper>
-        <LogoContainer>
-          <img src={logo} alt="MetalBand logo" />
-        </LogoContainer>
+      <NavWrapper $isMedia={isMediaPage}>
+        {/* Visa inte loggan på media */}
+        {!isMediaPage && (
+          <LogoContainer>
+            <img src={logo} alt="Morbid Gene logo" />
+          </LogoContainer>
+        )}
 
         <DesktopNavLinks>
-          <li><a href="#hero" onClick={closeMobileMenu}>Home</a></li>
-          <li><a href="#gigs" onClick={closeMobileMenu}>Gigs</a></li>
-          <li><a href="#media" onClick={closeMobileMenu}>Media</a></li>
-          <li><a href="#contact" onClick={closeMobileMenu}>Contact</a></li>
+          <li>
+            <Link to="/" onClick={closeMobileMenu}>
+              Home
+            </Link>
+          </li>
+          <li>
+            <a href="#gigs" onClick={closeMobileMenu}>
+              Gigs
+            </a>
+          </li>
+          <li>
+            <Link to="/media" onClick={closeMobileMenu}>
+              Media
+            </Link>
+          </li>
+          <li>
+            <a href="#contact" onClick={closeMobileMenu}>
+              Contact
+            </a>
+          </li>
         </DesktopNavLinks>
 
-        {/* Hamburger Icon for Mobile */}
         <HamburgerIcon ref={iconRef} onClick={toggleMobileMenu}>
           {isMobileMenuOpen ? '✖' : '☰'}
         </HamburgerIcon>
       </NavWrapper>
 
-      {/* Mobile Navigation */}
       <MobileMenu ref={menuRef} $isOpen={isMobileMenuOpen}>
-        <li><a href="#hero" onClick={closeMobileMenu}>Home</a></li>
-        <li><a href="#gigs" onClick={closeMobileMenu}>Gigs</a></li>
-        <li><a href="#media" onClick={closeMobileMenu}>Media</a></li>
-        <li><a href="#contact" onClick={closeMobileMenu}>Contact</a></li>
+        <li>
+          <Link to="/" onClick={closeMobileMenu}>
+            Home
+          </Link>
+        </li>
+        <li>
+          <a href="#gigs" onClick={closeMobileMenu}>
+            Gigs
+          </a>
+        </li>
+        <li>
+          <Link to="/media" onClick={closeMobileMenu}>
+            Media
+          </Link>
+        </li>
+        <li>
+          <a href="#contact" onClick={closeMobileMenu}>
+            Contact
+          </a>
+        </li>
       </MobileMenu>
     </>
-  );
-};
+  )
+}
