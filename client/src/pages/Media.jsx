@@ -1,6 +1,7 @@
-// Media.jsx (refaktorerad till mobile-first CSS)
+// Media.jsx (mobile-first + z-index + icon fix)
 import styled from 'styled-components'
 import { useState, useEffect } from 'react'
+import { FaArrowLeft, FaArrowRight, FaTimes } from 'react-icons/fa'
 
 const fryshusetImages = import.meta.glob(
   '/src/assets/images/fryshuset/*.{jpg,png,JPG}',
@@ -26,6 +27,7 @@ const galleries = [
   },
 ]
 
+// Styled components
 const Wrapper = styled.section`
   padding: 120px 2rem 2rem;
   background: #000;
@@ -52,6 +54,11 @@ const CreditBlock = styled.p`
 `
 
 const BackButton = styled.button`
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+
   background: none;
   color: #fff;
   border: 2px solid #fff;
@@ -59,23 +66,22 @@ const BackButton = styled.button`
   border-radius: 4px;
   font-size: 1rem;
   cursor: pointer;
-  margin: 0 auto 2rem;
-  display: block;
 
-  &:focus {
-    outline: none;
-    box-shadow: none;
-  }
-  &:focus-visible {
+  margin: 0 auto 2rem;
+
+  &:focus,
+  &:focus-visible,
+  &:active {
     outline: none;
     box-shadow: none;
   }
 
   @media (min-width: 768px) {
     margin: 0 0 2rem 0;
-    display: inline-block;
   }
 `
+
+
 
 const GalleryGrid = styled.div`
   display: flex;
@@ -96,7 +102,7 @@ const GalleryCard = styled.div`
 
   img {
     width: 100%;
-    height: 250px; /* 🔥 fast höjd för konsekvent storlek */
+    height: 250px;
     object-fit: cover;
     border-radius: 8px;
   }
@@ -186,6 +192,7 @@ const CloseButton = styled.button`
   color: #fff;
   cursor: pointer;
   z-index: 1000;
+
   &:focus {
     outline: none;
     box-shadow: none;
@@ -200,12 +207,14 @@ const ModalCredit = styled.p`
   color: #ccc;
   text-align: center;
   margin-top: 1rem;
+  z-index: 2;
 
   @media (min-width: 768px) {
     font-size: 0.8rem;
   }
 `
 
+// Modal Component
 const Modal = ({ src, onClose, onPrev, onNext, credit }) => {
   useEffect(() => {
     const handleKey = (e) => {
@@ -225,34 +234,39 @@ const Modal = ({ src, onClose, onPrev, onNext, credit }) => {
           onPrev()
         }}
       >
-        ⬅
+        <FaArrowLeft />
       </ArrowLeft>
+
       <ModalImage
         src={src}
         alt="Large image"
         onClick={(e) => e.stopPropagation()}
       />
+
       <ModalCredit>{credit}</ModalCredit>
+
       <ArrowRight
         onClick={(e) => {
           e.stopPropagation()
           onNext()
         }}
       >
-        ➡
+        <FaArrowRight />
       </ArrowRight>
+
       <CloseButton
         onClick={(e) => {
           e.stopPropagation()
           onClose()
         }}
       >
-        ✖
+        <FaTimes />
       </CloseButton>
     </ModalOverlay>
   )
 }
 
+// Main Export
 export const Media = () => {
   const [selectedGallery, setSelectedGallery] = useState(null)
   const [selectedImage, setSelectedImage] = useState(null)
@@ -277,7 +291,7 @@ export const Media = () => {
         <Heading>{selectedGallery.name}</Heading>
         <CreditBlock>{selectedGallery.credit}</CreditBlock>
         <BackButton onClick={() => setSelectedGallery(null)}>
-          ⬅ Back
+          <FaArrowLeft /> Back
         </BackButton>
         <ThumbGrid>
           {selectedGallery.images.map((img, i) => (
