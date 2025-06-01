@@ -57,14 +57,13 @@ const Credit = styled.p`
 const ImageGrid = styled.div`
   display: grid;
   gap: 0.75rem;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  grid-template-columns: 1fr; /* 📱 default: en kolumn */
 
-  @media (min-width: 480px) {
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  }
-
-  @media (min-width: 768px) {
-    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  @media (min-width: 748px) {
+    grid-template-columns: repeat(
+      3,
+      1fr
+    ); /* 💻 tre kolumner på större skärmar */
   }
 
   img {
