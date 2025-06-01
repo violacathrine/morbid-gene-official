@@ -63,7 +63,6 @@ const Card = styled(Link)`
   }
 `
 
-
 const Overlay = styled.div`
   position: absolute;
   top: 0;
