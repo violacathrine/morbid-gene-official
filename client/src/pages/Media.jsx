@@ -16,13 +16,13 @@ const galleries = [
   {
     id: 'fryshuset',
     title: 'Stockholm - Fryshuset 24.05.25',
-    credit: 'Photo: Marielle Tengström @ Tritone',
+    credit: 'Photo © Marielle Tengström @ Tritone',
     images: Object.values(fryshusetImages),
   },
   {
     id: 'fredagsmangel',
     title: 'Jakobsberg - Fredagsmangel 15.11.24',
-    credit: 'Photo: Per Lenner',
+    credit: 'Photo © Per Lenner',
     images: Object.values(fredagsmangelImages),
   },
 ]
