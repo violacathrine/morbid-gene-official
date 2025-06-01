@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react'
 const galleries = {
   fryshuset: {
     title: 'Fryshuset 24.05.25',
-    credit: 'Photo: Marielle Tengström @ Tritone',
+    credit: 'Photo © Marielle Tengström @ Tritone',
     images: Object.values(
       import.meta.glob('/src/assets/images/fryshuset/*.{jpg,JPG,png}', {
         eager: true,
@@ -17,7 +17,7 @@ const galleries = {
   },
   fredagsmangel: {
     title: 'Fredagsmangel 15.11.24',
-    credit: 'Photo: Per Lenner',
+    credit: 'Photo © Per Lenner',
     images: Object.values(
       import.meta.glob('/src/assets/images/fredagsmangel/*.{jpg,JPG,png}', {
         eager: true,
