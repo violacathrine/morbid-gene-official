@@ -46,7 +46,7 @@ export const GlobalStyles = createGlobalStyle`
   transition: color 0.3s ease;
 
   &:hover {
-    color: #1DB954; /* Spotify-grönt */
+    color:rgb(255, 255, 255); /* Spotify-grönt */
   }
 }
 `

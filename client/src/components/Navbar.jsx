@@ -1,114 +1,105 @@
 // src/components/Navbar.jsx
+import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { useState, useRef, useEffect } from 'react'
 import styled from 'styled-components'
-import logo from '../assets/logo.svg'
 
-// --- Styled Components ---
-
-const NavWrapper = styled.nav`
+const NavbarWrapper = styled.nav`
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 9;
-  color: #fff;
-  padding: 2rem 2rem; // Consistent padding for both pages
+  padding: 1.5rem 2rem;
   display: flex;
-  justify-content: ${({ $isMedia }) =>
-    $isMedia ? 'flex-end' : 'space-between'};
+  justify-content: flex-end;
   align-items: center;
+  z-index: 999;
   background: transparent;
 
   @media (min-width: 768px) {
-    padding: 2.5rem 3rem; // Consistent desktop padding
+    justify-content: flex-end;
+    padding: 2rem 3rem;
   }
 `
 
-const LogoContainer = styled.div`
-  display: flex;
-  align-items: center;
-  height: auto;
+const NavLinks = styled.ul`
+  display: none;
 
-  img {
-    height: 100px;
+  @media (min-width: 768px) {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
 
-    @media (min-width: 768px) {
-      height: 100px;
+    li a {
+    font-size: 25px;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      text-transform: uppercase;
     }
   }
 `
 
-const DesktopNavLinks = styled.ul`
-  display: none;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  gap: 2rem;
-
-  @media (min-width: 768px) {
-    display: flex;
-    align-items: flex-start;
-    margin-top: 0.5rem;
-  }
-
-  li a {
-    color: #fff;
-    text-decoration: none;
-    text-transform: uppercase;
-    font-weight: bold;
-    white-space: nowrap;
-  }
-`
-
-const HamburgerIcon = styled.div`
-  display: block;
-  font-size: 2rem;
+const BurgerToggle = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 30px;
   cursor: pointer;
-  color: #fff;
-  margin-left: auto;
+  position: fixed;
+  top: 15px;
+  right: 10px;
+  z-index: 1001;
 
   @media (min-width: 768px) {
     display: none;
+  }
+`
+
+const Bar = styled.div`
+  width: 100%;
+  height: 3px;
+  background-color: white;
+  border-radius: 5px;
+  transition: 0.4s;
+
+  &:nth-child(1) {
+    transform: ${({ $isOpen }) =>
+      $isOpen ? 'rotate(45deg) translateY(19px)' : 'none'};
+  }
+  &:nth-child(2) {
+    opacity: ${({ $isOpen }) => ($isOpen ? 0 : 1)};
+  }
+  &:nth-child(3) {
+    transform: ${({ $isOpen }) =>
+      $isOpen ? 'rotate(-45deg) translateY(-19px)' : 'none'};
   }
 `
 
 const MobileMenu = styled.ul`
-  position: absolute;
-  top: 0;
+  position: fixed;
+  top: ${({ $isOpen }) => ($isOpen ? '0' : '-100%')};
   left: 0;
   width: 100%;
-  background: rgba(0, 0, 0, 0.95);
+  background-color: rgba(0, 0, 0, 0.89);
   list-style: none;
-  padding: 1.5rem 1rem;
-  z-index: 10;
-  flex-direction: column;
-  transition:
-    transform 0.3s ease,
-    opacity 0.3s ease;
-  transform: ${({ $isOpen }) =>
-    $isOpen ? 'translateY(0)' : 'translateY(-100%)'};
-  opacity: ${({ $isOpen }) => ($isOpen ? 1 : 0)};
-  pointer-events: ${({ $isOpen }) => ($isOpen ? 'auto' : 'none')};
+  padding: 5rem 2rem 2rem;
+  transition: top 0.4s ease-in-out;
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 1000;
 
   li {
-    text-align: center;
-    margin-bottom: 1rem;
-  }
+    margin-bottom: 1.5rem;
 
-  li:last-child {
-    margin-bottom: 0;
-  }
-
-  li a {
-    color: #fff;
-    text-decoration: none;
-    text-transform: uppercase;
-    font-weight: bold;
-    font-size: 1.2rem;
-    display: block;
-    padding: 0.5rem 0;
+    a {
+      color: white;
+      text-decoration: none;
+      font-size: 1.2rem;
+      text-transform: uppercase;
+      font-weight: bold;
+    }
   }
 
   @media (min-width: 768px) {
@@ -116,100 +107,53 @@ const MobileMenu = styled.ul`
   }
 `
 
-// --- Component ---
 export const Navbar = () => {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-  const menuRef = useRef(null)
-  const iconRef = useRef(null)
+  const [isOpen, setIsOpen] = useState(false)
   const location = useLocation()
-  const isMediaPage = location.pathname === '/media'
 
-  const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen)
-  const closeMobileMenu = () => setIsMobileMenuOpen(false)
+  const toggleMenu = () => setIsOpen(!isOpen)
 
   useEffect(() => {
-    if (!isMobileMenuOpen) return
-
-    const handleClickOutside = (e) => {
-      if (
-        menuRef.current &&
-        !menuRef.current.contains(e.target) &&
-        iconRef.current &&
-        !iconRef.current.contains(e.target)
-      ) {
-        setIsMobileMenuOpen(false)
-      }
-    }
-
-    document.addEventListener('mousedown', handleClickOutside)
-    document.addEventListener('touchstart', handleClickOutside)
-
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside)
-      document.removeEventListener('touchstart', handleClickOutside)
-    }
-  }, [isMobileMenuOpen])
+    setIsOpen(false)
+  }, [location.pathname])
 
   return (
-    <>
-      <NavWrapper $isMedia={isMediaPage}>
-        {/* Visa inte loggan på media */}
-        {!isMediaPage && (
-          <LogoContainer>
-            <img src={logo} alt="Morbid Gene logo" />
-          </LogoContainer>
-        )}
-
-        <DesktopNavLinks>
-          <li>
-            <Link to="/" onClick={closeMobileMenu}>
-              Home
-            </Link>
-          </li>
-          <li>
-            <a href="#gigs" onClick={closeMobileMenu}>
-              Gigs
-            </a>
-          </li>
-          <li>
-            <Link to="/media" onClick={closeMobileMenu}>
-              Media
-            </Link>
-          </li>
-          <li>
-            <a href="#contact" onClick={closeMobileMenu}>
-              Contact
-            </a>
-          </li>
-        </DesktopNavLinks>
-
-        <HamburgerIcon ref={iconRef} onClick={toggleMobileMenu}>
-          {isMobileMenuOpen ? '✖' : '☰'}
-        </HamburgerIcon>
-      </NavWrapper>
-
-      <MobileMenu ref={menuRef} $isOpen={isMobileMenuOpen}>
+    <NavbarWrapper>
+      <NavLinks>
         <li>
-          <Link to="/" onClick={closeMobileMenu}>
-            Home
-          </Link>
+          <Link to="/">Home</Link>
         </li>
         <li>
-          <a href="#gigs" onClick={closeMobileMenu}>
-            Gigs
-          </a>
+          <a href="#gigs">Gigs</a>
         </li>
         <li>
-          <Link to="/media" onClick={closeMobileMenu}>
-            Media
-          </Link>
+          <Link to="/media">Media</Link>
         </li>
         <li>
-          <a href="#contact" onClick={closeMobileMenu}>
-            Contact
-          </a>
+          <a href="#contact">Contact</a>
+        </li>
+      </NavLinks>
+
+      <BurgerToggle onClick={toggleMenu} $isOpen={isOpen}>
+        <Bar $isOpen={isOpen} />
+        <Bar $isOpen={isOpen} />
+        <Bar $isOpen={isOpen} />
+      </BurgerToggle>
+
+      <MobileMenu $isOpen={isOpen}>
+        <li>
+          <Link to="/">Home</Link>
+        </li>
+        <li>
+          <a href="#gigs">Gigs</a>
+        </li>
+        <li>
+          <Link to="/media">Media</Link>
+        </li>
+        <li>
+          <a href="#contact">Contact</a>
         </li>
       </MobileMenu>
-    </>
+    </NavbarWrapper>
   )
 }
