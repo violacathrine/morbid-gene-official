@@ -30,7 +30,7 @@ const NavLinks = styled.ul`
     list-style: none;
 
     li a {
-    font-size: 25px;
+    font-size: 22px;
       color: white;
       text-decoration: none;
       font-weight: bold;
